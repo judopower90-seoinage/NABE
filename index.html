@@ -23,8 +23,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:var(--s0);line-height:1.7;letter-spacing:.01em}
 button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #d49452;outline-offset:2px}
-button:disabled{opacity:.55;cursor:not-allowed}
-.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+button:disabled{opacity:.55;cursor:not-allowed}.wrap{width:min(1180px,calc(100% - 32px));margin-inline:auto}
 .topbar{background:var(--green);color:#f8faf7;border-bottom:1px solid rgba(255,255,255,.12);position:sticky;top:0;z-index:20}
 .topbar-in{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}.brand-mark{width:38px;height:38px;border-radius:12px;background:#e7bd6c;color:#203b30;display:grid;place-items:center;flex:none}
@@ -36,13 +35,18 @@ main{padding:20px 0 50px}.hero{background:var(--green);color:#fffefa;border-radi
 .eyebrow{font-size:.7rem;font-weight:900;letter-spacing:.14em;color:#d8b76d;text-transform:uppercase}.hero h1{font-size:var(--s3);line-height:1.15;letter-spacing:-.045em;margin:8px 0 8px;font-weight:900}.hero p{margin:0;color:#d1ded7;font-size:.88rem}.hero-meta{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}.tag{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);border-radius:999px;padding:5px 10px;font-size:.72rem;font-weight:700;color:#e4eee8}
 .hero-meter{border-left:1px solid rgba(255,255,255,.18);padding-left:clamp(16px,2.8vw,36px);position:relative;z-index:1}.meter-label{font-size:.72rem;color:#c2d1c8;font-weight:700}.meter-num{font-size:clamp(2.6rem,4.6vw,4.2rem);line-height:1.02;font-weight:900;letter-spacing:-.06em;margin:5px 0}.meter-num small{font-size:.95rem;letter-spacing:0;color:#e4c879;margin-left:6px}.meter-rule{height:7px;border-radius:9px;background:rgba(255,255,255,.13);overflow:hidden;margin:12px 0 8px;max-width:300px}.meter-rule span{display:block;height:100%;background:#e4bd6c;border-radius:inherit;width:0;transition:width .25s}.meter-caption{color:#c9d8d0;font-size:.68rem}
 .top-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:16px;margin-top:16px;align-items:stretch}.panel,.stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow)}.panel{padding:20px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:15px}.section-title{font-size:.98rem;font-weight:900;margin:0;display:flex;align-items:center;gap:8px}.section-title:before{content:"";width:5px;height:18px;border-radius:4px;background:var(--tomato);display:inline-block}.section-note{font-size:.68rem;color:var(--muted);margin:3px 0 0}.total-chip{background:var(--tomato-pale);color:var(--tomato-dark);font-size:.72rem;font-weight:900;padding:4px 9px;border-radius:999px;white-space:nowrap}
-.field-label{display:block;color:var(--muted);font-size:.68rem;font-weight:900;letter-spacing:.05em;margin-bottom:8px}.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.preset{border:1px solid var(--line);background:var(--paper-2);border-radius:13px;padding:10px 11px;text-align:left;color:var(--ink);min-height:76px;transition:.16s}.preset:hover{border-color:#b5c9bc;transform:translateY(-1px)}.preset.active{border:2px solid var(--green-2);background:var(--green-pale);padding:9px 10px;box-shadow:inset 0 0 0 1px rgba(40,84,72,.08)}.preset strong{display:block;font-size:.78rem;line-height:1.35}.preset small{display:block;color:var(--muted);font-size:.65rem;margin-top:4px}.preset-icon{font-size:1.1rem;margin-right:4px}
+.field-label{display:block;color:var(--muted);font-size:.68rem;font-weight:900;letter-spacing:.05em;margin-bottom:8px}
+
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px}
+.preset{border:1px solid var(--line);background:var(--paper-2);border-radius:12px;padding:9px 10px;text-align:left;color:var(--ink);min-height:70px;transition:.16s}
+.preset:hover{border-color:#b5c9bc;transform:translateY(-1px)}.preset.active{border:2px solid var(--green-2);background:var(--green-pale);padding:8px 9px;box-shadow:inset 0 0 0 1px rgba(40,84,72,.08)}
+.preset strong{display:block;font-size:.76rem;line-height:1.3}.preset small{display:block;color:var(--muted);font-size:.63rem;margin-top:3px;line-height:1.25}.preset-icon{font-size:1.05rem;margin-right:4px}
+
 .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.counter{background:var(--paper-2);border:1px solid var(--line);border-radius:13px;padding:9px 10px}.counter-top{display:flex;justify-content:space-between;gap:4px;align-items:center;margin-bottom:4px}.counter-name{font-size:.7rem;font-weight:900}.counter-factor{font-size:.62rem;color:var(--muted)}.counter-bottom{display:flex;align-items:center;justify-content:space-between}.step-btn{border:1px solid var(--line);background:#fff;border-radius:8px;width:28px;height:28px;color:var(--green);font-weight:900;font-size:.95rem;line-height:1}.count-input{width:46px;text-align:center;border:0;background:transparent;color:var(--ink);font-size:1.08rem;font-weight:900}.count-unit{font-size:.68rem;color:var(--muted)}.bowls-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:13px;padding:10px 12px;border:1px dashed #ccd6cd;border-radius:12px;background:#fbfcf8}.bowls-row strong{display:block;font-size:.74rem}.bowls-row small{display:block;color:var(--muted);font-size:.65rem}.select{border:1px solid var(--line);border-radius:10px;background:#fff;padding:6px 24px 6px 9px;color:var(--ink);font-size:.72rem;font-weight:800;max-width:100%}
 .budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.money-field{background:var(--paper-2);border:1px solid var(--line);border-radius:11px;padding:8px 8px}.money-field label{display:block;font-size:.64rem;color:var(--muted);font-weight:800}.money-input{display:flex;align-items:center;gap:3px;color:#77827b;font-size:.73rem;font-weight:800}.money-input input{min-width:0;width:100%;border:0;background:transparent;outline:none!important;color:var(--ink);font-weight:900;font-size:.83rem;padding:2px}.money-input input:focus-visible{outline:2px solid #d49452!important;border-radius:4px}.extra-row{margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:9px 11px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fbfcf8}.extra-row strong{font-size:.72rem}.extra-row small{display:block;color:var(--muted);font-size:.64rem}.extra-row .money-input{width:115px;background:#fff;padding:5px 8px;border:1px solid var(--line);border-radius:9px}.balance-wrap{margin-top:12px;padding:10px 11px;background:var(--paper-2);border-radius:12px}.balance-label{display:flex;justify-content:space-between;gap:8px;font-size:.66rem;color:var(--muted);font-weight:800}.budget-bar{height:9px;background:#e4e9e3;border-radius:99px;display:flex;overflow:hidden;margin-top:7px}.budget-expense{height:100%;background:var(--tomato);transition:width .25s}.budget-surplus{height:100%;background:#6b9b76;transition:width .25s}.budget-over{font-size:.63rem;color:var(--tomato-dark);font-weight:800;margin-top:5px;min-height:1em}.money-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.sum-box{padding:7px 5px;text-align:center;background:var(--paper-2);border:1px solid var(--line);border-radius:11px}.sum-box span{display:block;font-size:.59rem;color:var(--muted);font-weight:800}.sum-box strong{font-size:.9rem;font-weight:900;display:block;letter-spacing:-.03em;white-space:nowrap}.sum-box.cost strong{color:var(--tomato-dark)}.sum-box.balance strong{color:var(--green-2)}.sum-box.balance.negative strong{color:var(--tomato-dark)}.status-pill{font-size:.64rem;border-radius:999px;padding:3px 8px;font-weight:900;background:#e9f2e8;color:#346342;white-space:nowrap}.status-pill.negative{background:var(--tomato-pale);color:var(--tomato-dark)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.stat{padding:13px 14px;display:flex;align-items:center;gap:11px;min-width:0}.stat-mark{width:38px;height:38px;border-radius:12px;background:var(--green-pale);color:var(--green);display:grid;place-items:center;font-size:1.15rem;flex:none}.stat:nth-child(2) .stat-mark{background:#f8e8e2;color:var(--tomato-dark)}.stat:nth-child(3) .stat-mark{background:#e6eef0;color:#37626b}.stat:nth-child(4) .stat-mark{background:#f4eedf;color:#82601b}.stat-label{font-size:.64rem;color:var(--muted);font-weight:800;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat-value{font-size:1rem;font-weight:900;letter-spacing:-.03em;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat-value.small{font-size:.74rem;white-space:normal;line-height:1.35}
-.tabs{display:flex;gap:5px;padding:5px;border-radius:14px;background:#e5e9e2;border:1px solid #d9e0d7;margin:18px 0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch}.tab-btn{border:0;border-radius:10px;background:transparent;color:#53635a;padding:9px 12px;white-space:nowrap;font-size:.73rem;font-weight:900;flex:1;min-width:115px;transition:.16s}.tab-btn.active{background:var(--paper);color:var(--green);box-shadow:0 2px 8px rgba(25,54,42,.1)}.tab-panel{display:none}.tab-panel.active{display:block}.content-panel{overflow:hidden}.panel-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}.panel-bar h2{margin:0;font-size:.98rem;font-weight:900}.panel-bar p{margin:2px 0 0;color:var(--muted);font-size:.68rem}
+.tabs{display:flex;gap:5px;padding:5px;border-radius:14px;background:#e5e9e2;border:1px solid #d9e0d7;margin:18px 0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch}.tab-btn{border:0;border-radius:10px;background:transparent;color:#53635a;padding:9px 12px;white-space:nowrap;font-size:.73rem;font-weight:900;flex:1;min-width:115px;transition:.16s}.tab-btn.active{background:var(--paper);color:var(--green);box-shadow:0 2px 8px rgba(255,255,255,.1)}.tab-panel{display:none}.tab-panel.active{display:block}.content-panel{overflow:hidden}.panel-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}.panel-bar h2{margin:0;font-size:.98rem;font-weight:900}.panel-bar p{margin:2px 0 0;color:var(--muted);font-size:.68rem}
 
-/* 食材テーブル（レスポンシブ最適化） */
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
 table{width:100%;border-collapse:collapse;font-size:.72rem}
 th{text-align:left;padding:10px 8px;background:#f7f8f4;color:#68756d;font-size:.64rem;white-space:nowrap;border-bottom:1px solid var(--line)}
@@ -68,7 +72,6 @@ tbody tr:hover{background:#fbfcf8}
 .cook-modal{position:fixed;inset:0;z-index:50;display:none;background:#14201c;color:#f6f8f4;overflow:auto}.cook-modal.open{display:block}.cook-top{position:sticky;top:0;z-index:2;background:rgba(20,32,28,.97);border-bottom:1px solid #34443c;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}.cook-top h2{font-size:.96rem;margin:0}.cook-top p{font-size:.67rem;color:#b6c5bd;margin:2px 0 0}.cook-body{width:min(820px,calc(100% - 28px));margin:18px auto 48px;display:grid;gap:14px}.cook-block{border:1px solid #34443c;background:#1c2b25;border-radius:16px;padding:15px}.cook-block h3{font-size:.83rem;color:#e9c879;margin:0 0 11px}.cook-season-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.cook-season{background:#14201c;border:1px solid #34443c;border-radius:10px;padding:9px;text-align:center}.cook-season span{display:block;font-size:.64rem;color:#b6c5bd}.cook-season strong{font-size:.96rem;color:#e9c879}.cook-step{display:flex;align-items:flex-start;gap:11px;background:#1c2b25;border:1px solid #34443c;border-radius:12px;padding:12px;cursor:pointer;margin-top:7px}.cook-step.done{opacity:.55}.cook-step.done .step-text{text-decoration:line-through}.step-num{width:26px;height:26px;border-radius:8px;background:#e9c879;color:#203a30;display:grid;place-items:center;flex:none;font-weight:900;font-size:.85rem}.step-text{font-size:.81rem;font-weight:700;line-height:1.55;flex:1}.step-check{color:#e9c879;font-size:1.1rem}.cook-tip{font-size:.73rem;color:#e5d6aa;line-height:1.75}.cook-shime{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.cook-shime div{border:1px solid #34443c;background:#14201c;border-radius:10px;padding:9px;text-align:center}.cook-shime strong{display:block;color:#e9c879;font-size:.78rem}.cook-shime span{font-size:.66rem;color:#d5ddd8}
 footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
 
-/* レスポンシブ挙動（タブレット・モバイル） */
 @media(max-width:920px){
   .top-grid{grid-template-columns:1fr}
   .hero{grid-template-columns:1fr;gap:20px;padding:22px}
@@ -76,9 +79,10 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .two-col{grid-template-columns:1fr}
   .card-grid{grid-template-columns:repeat(2,1fr)}
+  .preset-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:640px){
-  .wrap{width:100% - 20px;width:calc(100% - 20px)}
+  .wrap{width:calc(100% - 20px)}
   .topbar-in{min-height:56px}
   .brand-mark{width:32px;height:32px;border-radius:9px}
   .brand-name{font-size:.94rem}
@@ -91,10 +95,10 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
   .meter-num{font-size:2.6rem}
   .panel{padding:14px;border-radius:16px}
   .section-head{padding-bottom:10px;margin-bottom:12px}
-  .preset-grid{grid-template-columns:repeat(3,1fr);gap:5px}
-  .preset{padding:7px 6px;min-height:68px}
+  .preset-grid{grid-template-columns:repeat(2,1fr);gap:5px}
+  .preset{padding:7px 6px;min-height:64px}
   .preset strong{font-size:.68rem}
-  .preset small{font-size:.58rem}
+  .preset small{font-size:.57rem}
   .people-grid{gap:5px;margin-top:12px}
   .counter{padding:7px 6px}
   .counter-name{font-size:.64rem}
@@ -122,8 +126,6 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
   .card-grid{grid-template-columns:1fr}
   .recipe-card{min-height:0}
   .recipe-card p{min-height:0}
-  
-  /* 食材テーブル モバイル最適化 */
   table{font-size:.68rem}
   th,td{padding:6px 3px}
   .item-name{min-width:85px;font-size:.68rem;padding:3px 2px}
@@ -134,7 +136,6 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
   .delete-btn{font-size:1rem;padding:1px 3px}
   .table-foot{padding:10px 12px;font-size:.7rem}
   .table-foot strong{font-size:.92rem}
-  
   .cook-top{padding:10px 14px}
   .cook-body{width:calc(100% - 20px);margin-top:12px}
   .cook-block{padding:12px}
@@ -154,18 +155,18 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
   <div class="top-actions"><button class="btn btn-dark" id="openCook"><span aria-hidden="true">🔥</span><span>現地調理モード</span></button><button class="btn btn-dark hide-mobile" id="openImport">シート取込</button><button class="btn btn-primary" id="shareBtn">共有リストをコピー</button></div>
 </div></header>
 <main class="wrap">
-  <section class="hero" aria-labelledby="page-title"><div><div class="eyebrow">鍋会の仕込みを、ひと目で。</div><h1 id="page-title">鍋の支度を、<br>はじめよう。</h1><p>人数に合わせた具材・調味料・鍋サイズと、会費の収支をまとめて計算。</p><div class="hero-meta"><span class="tag" id="heroPeople">参加 12名</span><span class="tag" id="heroStyle">山形・芋煮</span><span class="tag">買い出しから現地調理まで</span></div></div>
-  <div class="hero-meter"><div class="meter-label">鍋の換算量（おかわり込み）</div><div class="meter-num"><span id="heroServings">15.6</span><small>杯分</small></div><div class="meter-rule" aria-hidden="true"><span id="servingMeter"></span></div><div class="meter-caption">人数構成 × 想定杯数から必要量を算出</div></div></section>
+  <section class="hero" aria-labelledby="page-title"><div><div class="eyebrow">鍋とキャンプ飯の仕込みを、ひと目で。</div><h1 id="page-title">鍋の支度を、<br>はじめよう。</h1><p>人数に合わせた具材・調味料・調理器具と、会費の収支をまとめて計算。</p><div class="hero-meta"><span class="tag" id="heroPeople">参加 12名</span><span class="tag" id="heroStyle">山形・芋煮</span><span class="tag">買い出しから現地調理まで</span></div></div>
+  <div class="hero-meter"><div class="meter-label">仕込みの換算量（おかわり込み）</div><div class="meter-num"><span id="heroServings">15.6</span><small id="heroServingUnit">人前</small></div><div class="meter-rule" aria-hidden="true"><span id="servingMeter"></span></div><div class="meter-caption">人数構成 × 想定食数から必要量を算出</div></div></section>
 
   <section class="top-grid" aria-label="人数と予算の設定">
-    <article class="panel"><div class="section-head"><div><h2 class="section-title">人数とメニュー</h2><p class="section-note">食べる量の目安を係数で調整します。</p></div><span class="total-chip"><span id="servingChip">15.6</span>杯分</span></div>
-      <label class="field-label">料理スタイル</label><div class="preset-grid" id="presetSelector"></div>
+    <article class="panel"><div class="section-head"><div><h2 class="section-title">人数とメニュー</h2><p class="section-note">食べる量の目安を係数で調整します。</p></div><span class="total-chip"><span id="servingChip">15.6</span>食分</span></div>
+      <label class="field-label">料理スタイル（大鍋・キャンプ飯）</label><div class="preset-grid" id="presetSelector"></div>
       <div class="people-grid">
         <div class="counter"><div class="counter-top"><span class="counter-name">大人</span><span class="counter-factor">1.0人前</span></div><div class="counter-bottom"><button class="step-btn" data-target="adultCount" data-delta="-1" aria-label="大人を1人減らす">−</button><div><input class="count-input" type="number" id="adultCount" min="0" max="500" value="8" aria-label="大人人数"><span class="count-unit">人</span></div><button class="step-btn" data-target="adultCount" data-delta="1" aria-label="大人を1人増やす">＋</button></div></div>
         <div class="counter"><div class="counter-top"><span class="counter-name">子ども</span><span class="counter-factor">0.6人前</span></div><div class="counter-bottom"><button class="step-btn" data-target="childCount" data-delta="-1" aria-label="子どもを1人減らす">−</button><div><input class="count-input" type="number" id="childCount" min="0" max="500" value="2" aria-label="子どもの人数"><span class="count-unit">人</span></div><button class="step-btn" data-target="childCount" data-delta="1" aria-label="子どもを1人増やす">＋</button></div></div>
         <div class="counter"><div class="counter-top"><span class="counter-name">大食い</span><span class="counter-factor">1.4人前</span></div><div class="counter-bottom"><button class="step-btn" data-target="bigEaterCount" data-delta="-1" aria-label="大食い人数を1人減らす">−</button><div><input class="count-input" type="number" id="bigEaterCount" min="0" max="500" value="2" aria-label="大食い人数"><span class="count-unit">人</span></div><button class="step-btn" data-target="bigEaterCount" data-delta="1" aria-label="大食い人数を1人増やす">＋</button></div></div>
       </div>
-      <div class="bowls-row"><div><strong>1人あたりの想定杯数</strong><small>BBQなど他の料理との兼ね合いで選択</small></div><select id="bowlsPerPerson" class="select" aria-label="1人あたりの想定杯数"><option value="1">1.0杯｜他料理と併催</option><option value="1.3" selected>1.3杯｜標準</option><option value="1.8">1.8杯｜鍋が主役</option></select></div>
+      <div class="bowls-row"><div><strong>1人あたりの想定量・食数</strong><small>他料理・BBQとの兼ね合いで調整</small></div><select id="bowlsPerPerson" class="select" aria-label="1人あたりの想定杯数"><option value="1">1.0倍｜他料理と併催・標準</option><option value="1.3" selected>1.3倍｜おかわり・たっぷり</option><option value="1.8">1.8倍｜本品が完全主役</option></select></div>
     </article>
     <article class="panel"><div class="section-head"><div><h2 class="section-title">予算と会費</h2><p class="section-note">チェック済み食材と雑費から概算します。</p></div><span id="budgetBadge" class="status-pill">黒字</span></div>
       <label class="field-label">会費の設定</label><div class="budget-grid">
@@ -179,41 +180,201 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
     </article>
   </section>
 
-  <section class="stats" aria-label="鍋の必要量"><article class="stat"><div class="stat-mark" id="mainIcon">🥔</div><div><span class="stat-label" id="mainLabel">主役の里芋</span><strong class="stat-value" id="mainQty">3.1 kg</strong></div></article><article class="stat"><div class="stat-mark">🥩</div><div><span class="stat-label" id="meatLabel">牛肉</span><strong class="stat-value" id="meatQty">1.6 kg</strong></div></article><article class="stat"><div class="stat-mark">水</div><div><span class="stat-label">必要な水分量</span><strong class="stat-value" id="waterQty">6.2 L</strong></div></article><article class="stat"><div class="stat-mark">鍋</div><div><span class="stat-label">推奨鍋サイズ</span><strong class="stat-value small" id="potQuick">12〜15 L</strong></div></article></section>
+  <section class="stats" aria-label="仕込みの必要量"><article class="stat"><div class="stat-mark" id="mainIcon">🥔</div><div><span class="stat-label" id="mainLabel">主役の食材</span><strong class="stat-value" id="mainQty">3.1 kg</strong></div></article><article class="stat"><div class="stat-mark" id="meatIcon">🥩</div><div><span class="stat-label" id="meatLabel">お肉・メイン</span><strong class="stat-value" id="meatQty">1.6 kg</strong></div></article><article class="stat"><div class="stat-mark">💧</div><div><span class="stat-label" id="liquidLabel">必要な水分・出汁</span><strong class="stat-value" id="waterQty">6.2 L</strong></div></article><article class="stat"><div class="stat-mark" id="equipIcon">🍲</div><div><span class="stat-label" id="equipLabel">推奨器具サイズ</span><strong class="stat-value small" id="potQuick">12〜15 L</strong></div></article></section>
 
-  <nav class="tabs no-print" role="tablist" aria-label="計算内容"><button class="tab-btn active" role="tab" aria-selected="true" data-tab="ingredients">買い出し食材</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="seasonings">調味料と手順</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="shime">鍋のシメ</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="equipment">鍋・備品チェック</button></nav>
-  <section class="tab-panel active" id="tab-ingredients" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>買い出し食材</h2><p>必要量・単価を調整できます。不要な具材はチェックを外します。</p></div><button class="btn btn-light" id="addItem">＋ 食材を追加</button></div><div class="table-scroll"><table><thead><tr><th class="col-check td-center">購入</th><th>食材名</th><th class="td-right">1杯分目安</th><th class="td-right">必要総量</th><th class="td-right">単価</th><th class="td-right">小計</th><th class="col-act"></th></tr></thead><tbody id="ingredientsBody"></tbody></table></div><div class="table-foot"><span>食材の概算合計</span><strong id="ingredientTotal">¥0</strong></div><p class="table-note">※ g単位の食材は円/100g、個数・本数・束数の食材は円/単位で計算します。</p></article></section>
-  <section class="tab-panel" id="tab-seasonings" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>調味料と調理手順</h2><p>味の調整は最後に。計算値を基準に少しずつ加えてください。</p></div><span id="styleBadge" class="total-chip">山形・芋煮</span></div><div class="content-pad two-col"><div><h3 class="subhead">必要な調味料</h3><div id="seasoningList" class="season-list"></div></div><div id="guideBox" class="guide"></div></div></article></section>
-  <section class="tab-panel" id="tab-shime" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2 id="shimeHeading">鍋のシメ</h2><p id="shimeSubheading"></p></div></div><div class="content-pad"><div id="shimeCards" class="card-grid"></div></div></article></section>
-  <section class="tab-panel" id="tab-equipment" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>鍋・熱源・備品チェック</h2><p>容量の目安は、水分量から具材体積を概算して安全余裕を加えています。</p></div></div><div class="content-pad two-col"><div><h3 class="subhead">大鍋と熱源の目安</h3><div class="equip-stats"><div class="equip-row"><span>仕込み総容量（概算）</span><strong id="equipVolume">約 9.0 L</strong></div><div class="equip-row"><span>推奨鍋（安全余裕込み）</span><strong id="equipPot">12〜15 L</strong></div><div class="equip-row"><span>鍋の直径目安</span><strong id="equipDiameter">30〜33 cm</strong></div><div class="equip-row"><span>カセットボンベ（概算）</span><strong id="equipGas">4本</strong></div></div><p class="table-note" style="padding:8px 0">※火力・風・気温・加熱時間で変わるため、ボンベは予備を含む目安です。</p></div><div><h3 class="subhead">消耗品・備品チェック</h3><div id="equipmentList" class="checklist"></div></div></div></article></section>
+  <nav class="tabs no-print" role="tablist" aria-label="計算内容"><button class="tab-btn active" role="tab" aria-selected="true" data-tab="ingredients">買い出し食材</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="seasonings">調味料と手順</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="shime">シメ・アレンジ</button><button class="tab-btn" role="tab" aria-selected="false" data-tab="equipment">調理器具・備品</button></nav>
+  <section class="tab-panel active" id="tab-ingredients" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>買い出し食材</h2><p>必要量・単価を調整できます。不要な具材はチェックを外します。</p></div><button class="btn btn-light" id="addItem">＋ 食材を追加</button></div><div class="table-scroll"><table><thead><tr><th class="col-check td-center">購入</th><th>食材名</th><th class="td-right">1人前目安</th><th class="td-right">必要総量</th><th class="td-right">単価</th><th class="td-right">小計</th><th class="col-act"></th></tr></thead><tbody id="ingredientsBody"></tbody></table></div><div class="table-foot"><span>食材の概算合計</span><strong id="ingredientTotal">¥0</strong></div><p class="table-note">※ g単位の食材は円/100g、個数・本数・玉・合などの食材は円/単位で計算します。</p></article></section>
+  <section class="tab-panel" id="tab-seasonings" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>調味料と調理手順</h2><p>味の調整は仕上げに。計算値を基準に少しずつ加えてください。</p></div><span id="styleBadge" class="total-chip">山形・芋煮</span></div><div class="content-pad two-col"><div><h3 class="subhead">必要な調味料</h3><div id="seasoningList" class="season-list"></div></div><div id="guideBox" class="guide"></div></div></article></section>
+  <section class="tab-panel" id="tab-shime" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2 id="shimeHeading">シメ・アレンジ</h2><p id="shimeSubheading"></p></div></div><div class="content-pad"><div id="shimeCards" class="card-grid"></div></div></article></section>
+  <section class="tab-panel" id="tab-equipment" role="tabpanel"><article class="panel content-panel"><div class="panel-bar"><div><h2>器具・熱源・備品チェック</h2><p>料理の嵩（体積）や熱源の目安を自動推計しています。</p></div></div><div class="content-pad two-col"><div><h3 class="subhead">推奨器具と熱源</h3><div class="equip-stats"><div class="equip-row"><span>仕込み総容量（概算）</span><strong id="equipVolume">約 9.0 L</strong></div><div class="equip-row"><span id="equipRowTitle">推奨器具サイズ</span><strong id="equipPot">12〜15 L</strong></div><div class="equip-row"><span id="equipDimTitle">器具の直径目安</span><strong id="equipDiameter">30〜33 cm</strong></div><div class="equip-row"><span>カセットボンベ / 炭</span><strong id="equipGas">4本</strong></div></div><p class="table-note" style="padding:8px 0" id="equipNote">※火力・風・気温・加熱時間で変わるため、ボンベや炭は予備を含む目安です。</p></div><div><h3 class="subhead">消耗品・備品チェック</h3><div id="equipmentList" class="checklist"></div></div></div></article></section>
 </main>
 <footer class="wrap">鍋支度　｜　数値は一般的な目安です。食材の大きさや味の好みに合わせて調整してください。</footer>
 
-<div class="modal" id="importModal" role="dialog" aria-modal="true" aria-labelledby="importTitle"><div class="modal-box"><div class="modal-head"><h2 id="importTitle">食材データを取り込む</h2><button class="icon-btn" id="closeImport" aria-label="閉じる">×</button></div><p class="modal-copy">列の順番は「食材名、1杯分の量、単位、単価」です。g単位の価格は円/100g、それ以外は円/単位として読み込みます。CSVまたはタブ区切りを貼り付けてください。</p><textarea id="importText" class="textarea" rows="7" placeholder="食材名&#9;1杯分&#9;単位&#9;単価&#10;里芋&#9;200&#9;g&#9;120&#10;長ネギ&#9;0.5&#9;本&#9;80"></textarea><div class="modal-actions"><label class="file-label">CSV / TSVファイルを選択<input type="file" id="csvFile" accept=".csv,.tsv,.txt,text/csv,text/plain"></label><div class="action-group"><button class="btn btn-quiet" id="cancelImport">キャンセル</button><button class="btn btn-primary" id="applyImport">取り込む</button></div></div></div></div>
-<div class="cook-modal" id="cookModal" role="dialog" aria-modal="true" aria-labelledby="cookTitle"><div class="cook-top"><div><h2 id="cookTitle">現地調理モード</h2><p id="cookSubtitle">調味料と手順を大きく表示します</p></div><button class="btn btn-dark" id="closeCook">閉じる</button></div><div class="cook-body"><section class="cook-block"><h3>今日の調味料・水分量</h3><div id="cookSeasonings" class="cook-season-grid"></div></section><section class="cook-block"><h3>調理手順｜終わった工程をタップ</h3><div id="cookSteps"></div><p class="cook-tip" id="cookTips"></p></section><section class="cook-block"><h3>最後のシメ</h3><div id="cookShime" class="cook-shime"></div></section></div></div>
+<div class="modal" id="importModal" role="dialog" aria-modal="true" aria-labelledby="importTitle"><div class="modal-box"><div class="modal-head"><h2 id="importTitle">食材データを取り込む</h2><button class="icon-btn" id="closeImport" aria-label="閉じる">×</button></div><p class="modal-copy">列の順番は「食材名、1人分の量、単位、単価」です。g単位の価格は円/100g、それ以外は円/単位として読み込みます。CSVまたはタブ区切りを貼り付けてください。</p><textarea id="importText" class="textarea" rows="7" placeholder="食材名&#9;1人分&#9;単位&#9;単価&#10;里芋&#9;200&#9;g&#9;120&#10;長ネギ&#9;0.5&#9;本&#9;80"></textarea><div class="modal-actions"><label class="file-label">CSV / TSVファイルを選択<input type="file" id="csvFile" accept=".csv,.tsv,.txt,text/csv,text/plain"></label><div class="action-group"><button class="btn btn-quiet" id="cancelImport">キャンセル</button><button class="btn btn-primary" id="applyImport">取り込む</button></div></div></div></div>
+<div class="cook-modal" id="cookModal" role="dialog" aria-modal="true" aria-labelledby="cookTitle"><div class="cook-top"><div><h2 id="cookTitle">現地調理モード</h2><p id="cookSubtitle">調味料と手順を大きく表示します</p></div><button class="btn btn-dark" id="closeCook">閉じる</button></div><div class="cook-body"><section class="cook-block"><h3>今日の調味料・水分量</h3><div id="cookSeasonings" class="cook-season-grid"></div></section><section class="cook-block"><h3>調理手順｜終わった工程をタップ</h3><div id="cookSteps"></div><p class="cook-tip" id="cookTips"></p></section><section class="cook-block"><h3 id="cookShimeHeading">シメ・アレンジ</h3><div id="cookShime" class="cook-shime"></div></section></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 'use strict';
 const PRESETS={
- yamagata:{name:'山形・芋煮',fullName:'山形・芋煮（牛肉・醤油ベース）',short:'山形・芋煮',mainId:'taro',mainLabel:'主役の里芋',mainIcon:'🥔',meatLabel:'牛肉（牛バラ）',ingredients:[
-  {id:'taro',name:'里芋（皮むき・冷凍または生）',baseQty:200,unit:'g',price:120,checked:true},{id:'beef',name:'牛肉（牛バラ・こま切れ）',baseQty:100,unit:'g',price:380,checked:true},{id:'konjac',name:'こんにゃく（手ちぎり/玉こん）',baseQty:60,unit:'g',price:60,checked:true},{id:'negi',name:'長ネギ（笹がき）',baseQty:.7,unit:'本',price:80,checked:true},{id:'maitake',name:'まいたけ / しめじ',baseQty:40,unit:'g',price:120,checked:true},{id:'gobou',name:'ささがきごぼう',baseQty:30,unit:'g',price:100,checked:true}],
- seasonings:[{name:'水（煮出し用）',ratio:400,unit:'ml',note:'軟水がおすすめ'},{name:'醤油（だし醤油推奨）',ratio:35,unit:'ml',note:'濃口またはだし醤油'},{name:'日本酒（料理酒）',ratio:30,unit:'ml',note:'臭み消しとうま味'},{name:'砂糖（上白糖/ざらめ）',ratio:12,unit:'g',note:'少し甘めに仕上げる'},{name:'みりん',ratio:15,unit:'ml',note:'照りとまろやかさ'},{name:'だしの素（かつお/昆布）',ratio:3,unit:'g',note:'かつお・昆布ベース'}],
- guide:{title:'山形・芋煮の手順',steps:['鍋に水、里芋、手ちぎりこんにゃくを入れ、水から中火で煮る。','沸騰してアクが出たら取り、酒・砂糖・醤油の半量を加える。','牛肉の半量を加え、里芋に味を含ませる。','里芋が柔らかくなったら残りの調味料、きのこ、ごぼうを加える。','仕上げに残りの牛肉と長ネギを加え、火が通ったら火を止める。'],tips:'牛肉と調味料を二度に分けると、具材に味がなじみやすくなります。'},
- shime:{heading:'芋煮会の定番｜カレーうどん',subheading:'残った汁の量を見ながら、うどんとカレールーを少しずつ加えます。',cards:[{icon:'🍜',name:'冷凍・ゆでうどん',per:.65,unit:'玉',note:'1人あたり0.5〜0.8玉が目安'},{icon:'🍛',name:'カレールー',calc:s=>`${Math.max(2,Math.ceil(s*.45))}〜${Math.max(3,Math.ceil(s*.45)+2)}かけ`,note:'味を見ながら加えてとろみを調整'},{icon:'🧀',name:'追いチーズ',calc:s=>`${Math.max(1,Math.ceil(s/8))}袋`,note:'ピザ用チーズをお好みで'}]}},
- tonjiru:{name:'王道・豚汁',fullName:'王道・具だくさん豚汁（豚バラ・合わせ味噌）',short:'王道・豚汁',mainId:'pork',mainLabel:'主役の豚肉',mainIcon:'🥓',meatLabel:'豚肉（バラ/小間）',ingredients:[
-  {id:'pork',name:'豚バラ肉（薄切り・一口大）',baseQty:90,unit:'g',price:220,checked:true},{id:'daikon',name:'大根（いちょう切り）',baseQty:75,unit:'g',price:25,checked:true},{id:'carrot',name:'にんじん（半月切り）',baseQty:35,unit:'g',price:50,checked:true},{id:'gobou',name:'ごぼう（ささがき）',baseQty:35,unit:'g',price:100,checked:true},{id:'konjac',name:'板こんにゃく（短冊切り）',baseQty:50,unit:'g',price:60,checked:true},{id:'tofu',name:'木綿豆腐 / 厚揚げ',baseQty:50,unit:'g',price:40,checked:true},{id:'negi',name:'長ネギ（小口切り）',baseQty:.5,unit:'本',price:80,checked:true},{id:'oil',name:'ごま油（炒め用）',baseQty:6,unit:'g',price:150,checked:true}],
- seasonings:[{name:'水（出汁用）',ratio:380,unit:'ml',note:'根菜からも水分が出ます'},{name:'合わせ味噌',ratio:32,unit:'g',note:'半量を煮込み、残りを仕上げに'},{name:'和風だしの素',ratio:3.5,unit:'g',note:'かつお・昆布'},{name:'酒（料理酒）',ratio:20,unit:'ml',note:'臭み消しとコク'},{name:'みりん',ratio:10,unit:'ml',note:'まろやかな甘み'}],
- guide:{title:'具だくさん豚汁の手順',steps:['鍋にごま油を熱し、ごぼう・大根・にんじん・こんにゃくを炒める。','豚肉を加え、色が変わるまで炒め合わせる。','水・酒・だしを加えて煮立て、アクを取り除く。','味噌の半量を溶き、根菜が柔らかくなるまで煮る。','豆腐と残りの味噌を加え、長ネギを散らして温める。'],tips:'味噌は煮込みと仕上げの二度に分けると、香りを残しやすくなります。'},
- shime:{heading:'豚汁のシメ｜うどん・ごはん',subheading:'残った汁の塩分を確認し、麺やごはんを加えて味を整えます。',cards:[{icon:'🍜',name:'うどん / ほうとう',per:.6,unit:'玉',note:'太めの麺もよく合います'},{icon:'🍙',name:'ごはん・焼きおにぎり',calc:s=>`${Math.ceil(s*.8)}人分`,note:'味噌スープで雑炊にも'},{icon:'🌶️',name:'薬味',calc:()=>`七味・生姜 各1つ`,note:'七味・すりごま・生姜をお好みで'}]}},
- motsunabe:{name:'博多・もつ鍋',fullName:'博多風・もつ鍋（牛もつ・醤油ベース）',short:'博多・もつ鍋',mainId:'motsu',mainLabel:'主役の牛もつ',mainIcon:'🫕',meatLabel:'牛もつ（小腸/シマチョウ）',ingredients:[
-  {id:'motsu',name:'牛もつ（小腸・シマチョウ）',baseQty:160,unit:'g',price:350,checked:true},{id:'cabbage',name:'キャベツ（ざく切り）',baseQty:180,unit:'g',price:40,checked:true},{id:'nira',name:'ニラ',baseQty:.5,unit:'束',price:120,checked:true},{id:'moyashi',name:'もやし',baseQty:70,unit:'g',price:25,checked:true},{id:'tofu',name:'木綿豆腐',baseQty:50,unit:'g',price:40,checked:true},{id:'garlic',name:'にんにく',baseQty:10,unit:'g',price:180,checked:true},{id:'takanotsume',name:'鷹の爪',baseQty:.5,unit:'g',price:200,checked:true},{id:'sesame',name:'白いりごま',baseQty:3,unit:'g',price:150,checked:true}],
- seasonings:[{name:'水（スープベース）',ratio:380,unit:'ml',note:'野菜からも水分が出ます'},{name:'醤油（濃口）',ratio:30,unit:'ml',note:'コクのある醤油味'},{name:'料理酒',ratio:25,unit:'ml',note:'もつのうま味を引き立てる'},{name:'みりん',ratio:15,unit:'ml',note:'自然な甘み'},{name:'鶏がらスープの素',ratio:4,unit:'g',note:'うま味の土台'},{name:'和風だしの素',ratio:2.5,unit:'g',note:'昆布・かつお'},{name:'砂糖',ratio:5,unit:'g',note:'味の調整用'}],
- guide:{title:'博多風もつ鍋の手順',steps:['生もつは十分に加熱し、必要に応じて下ゆでして余分な脂を落とす。','鍋に水と調味料を合わせて火にかける。','もやし、もつ、豆腐を入れ、その上にキャベツを盛る。','ニラ、にんにく、鷹の爪、ごまをのせて蓋をする。','野菜に火が通ったら完成。もつは中心まで十分に加熱する。'],tips:'生もつは表示の調理方法に従い、中心部まで十分に加熱してください。野菜は煮込みすぎず、好みの食感で火を止めます。'},
- shime:{heading:'もつ鍋のシメ｜ちゃんぽん麺',subheading:'麺が汁を吸うため、必要なら水やスープを少量足し、味を整えます。',cards:[{icon:'🍜',name:'ちゃんぽん麺',per:.75,unit:'玉',note:'太麺にスープを吸わせます'},{icon:'🥚',name:'雑炊セット',calc:s=>`ごはん ${Math.ceil(s*.5)}杯・卵 ${Math.ceil(s*.5)}個`,note:'麺の後に雑炊にする場合'},{icon:'🧄',name:'追い薬味',calc:()=>`ニラ 1束・ごま 1袋`,note:'刻みネギ・ごまなどを追加'}]}}
+ yamagata:{
+  category:'鍋・煮込み',name:'山形・芋煮',fullName:'山形・芋煮（牛肉・醤油ベース）',short:'山形・芋煮',type:'pot',
+  mainId:'taro',mainLabel:'主役の里芋',mainIcon:'🥔',meatLabel:'牛肉（牛バラ）',meatIcon:'🥩',
+  ingredients:[
+   {id:'taro',name:'里芋（皮むき・冷凍または生）',baseQty:200,unit:'g',price:120,checked:true},
+   {id:'beef',name:'牛肉（牛バラ・こま切れ）',baseQty:100,unit:'g',price:380,checked:true},
+   {id:'konjac',name:'こんにゃく（手ちぎり/玉こん）',baseQty:60,unit:'g',price:60,checked:true},
+   {id:'negi',name:'長ネギ（笹がき）',baseQty:.7,unit:'本',price:80,checked:true},
+   {id:'maitake',name:'まいたけ / しめじ',baseQty:40,unit:'g',price:120,checked:true},
+   {id:'gobou',name:'ささがきごぼう',baseQty:30,unit:'g',price:100,checked:true}
+  ],
+  seasonings:[
+   {name:'水（煮出し用）',ratio:400,unit:'ml',note:'軟水がおすすめ'},
+   {name:'醤油（だし醤油推奨）',ratio:35,unit:'ml',note:'濃口またはだし醤油'},
+   {name:'日本酒（料理酒）',ratio:30,unit:'ml',note:'臭み消しとうま味'},
+   {name:'砂糖（上白糖/ざらめ）',ratio:12,unit:'g',note:'少し甘めに仕上げる'},
+   {name:'みりん',ratio:15,unit:'ml',note:'照りとまろやかさ'},
+   {name:'だしの素（かつお/昆布）',ratio:3,unit:'g',note:'かつお・昆布ベース'}
+  ],
+  guide:{title:'山形・芋煮の手順',steps:['鍋に水、里芋、手ちぎりこんにゃくを入れ、水から中火で煮る。','沸騰してアクが出たら取り、酒・砂糖・醤油の半量を加える。','牛肉の半量を加え、里芋に味を含ませる。','里芋が柔らかくなったら残りの調味料、きのこ、ごぼうを加える。','仕上げに残りの牛肉と長ネギを加え、火が通ったら火を止める。'],tips:'牛肉と調味料を二度に分けると、具材に味がなじみやすくなります。'},
+  shime:{heading:'芋煮会の定番｜カレーうどん',subheading:'残った汁の量を見ながら、うどんとカレールーを少しずつ加えます。',cards:[{icon:'🍜',name:'冷凍・ゆでうどん',per:.65,unit:'玉',note:'1人あたり0.5〜0.8玉が目安'},{icon:'🍛',name:'カレールー',calc:s=>`${Math.max(2,Math.ceil(s*.45))}〜${Math.max(3,Math.ceil(s*.45)+2)}かけ`,note:'味を見ながら加えてとろみを調整'},{icon:'🧀',name:'追いチーズ',calc:s=>`${Math.max(1,Math.ceil(s/8))}袋`,note:'ピザ用チーズをお好みで'}]}
+ },
+ tonjiru:{
+  category:'鍋・煮込み',name:'王道・豚汁',fullName:'王道・具だくさん豚汁（豚バラ・合わせ味噌）',short:'王道・豚汁',type:'pot',
+  mainId:'pork',mainLabel:'主役の豚肉',mainIcon:'🥓',meatLabel:'豚肉（バラ/小間）',meatIcon:'🥓',
+  ingredients:[
+   {id:'pork',name:'豚バラ肉（薄切り・一口大）',baseQty:90,unit:'g',price:220,checked:true},
+   {id:'daikon',name:'大根（いちょう切り）',baseQty:75,unit:'g',price:25,checked:true},
+   {id:'carrot',name:'にんじん（半月切り）',baseQty:35,unit:'g',price:50,checked:true},
+   {id:'gobou',name:'ごぼう（ささがき）',baseQty:35,unit:'g',price:100,checked:true},
+   {id:'konjac',name:'板こんにゃく（短冊切り）',baseQty:50,unit:'g',price:60,checked:true},
+   {id:'tofu',name:'木綿豆腐 / 厚揚げ',baseQty:50,unit:'g',price:40,checked:true},
+   {id:'negi',name:'長ネギ（小口切り）',baseQty:.5,unit:'本',price:80,checked:true},
+   {id:'oil',name:'ごま油（炒め用）',baseQty:6,unit:'g',price:150,checked:true}
+  ],
+  seasonings:[
+   {name:'水（出汁用）',ratio:380,unit:'ml',note:'根菜からも水分が出ます'},
+   {name:'合わせ味噌',ratio:32,unit:'g',note:'半量を煮込み、残りを仕上げに'},
+   {name:'和風だしの素',ratio:3.5,unit:'g',note:'かつお・昆布'},
+   {name:'酒（料理酒）',ratio:20,unit:'ml',note:'臭み消しとコク'},
+   {name:'みりん',ratio:10,unit:'ml',note:'まろやかな甘み'}
+  ],
+  guide:{title:'具だくさん豚汁の手順',steps:['鍋にごま油を熱し、ごぼう・大根・にんじん・こんにゃくを炒める。','豚肉を加え、色が変わるまで炒め合わせる。','水・酒・だしを加えて煮立て、アクを取り除く。','味噌の半量を溶き、根菜が柔らかくなるまで煮る。','豆腐と残りの味噌を加え、長ネギを散らして温める。'],tips:'味噌は煮込みと仕上げの二度に分けると、香りを残しやすくなります。'},
+  shime:{heading:'豚汁のシメ｜うどん・ごはん',subheading:'残った汁の塩分を確認し、麺やごはんを加えて味を整えます。',cards:[{icon:'🍜',name:'うどん / ほうとう',per:.6,unit:'玉',note:'太めの麺もよく合います'},{icon:'🍙',name:'ごはん・焼きおにぎり',calc:s=>`${Math.ceil(s*.8)}人分`,note:'味噌スープで雑炊にも'},{icon:'🌶️',name:'薬味',calc:()=>`七味・生姜 各1つ`,note:'七味・すりごま・生姜をお好みで'}]}
+ },
+ motsunabe:{
+  category:'鍋・煮込み',name:'博多・もつ鍋',fullName:'博多風・もつ鍋（牛もつ・醤油ベース）',short:'博多・もつ鍋',type:'pot',
+  mainId:'motsu',mainLabel:'主役の牛もつ',mainIcon:'🫕',meatLabel:'牛もつ（小腸/シマチョウ）',meatIcon:'🥩',
+  ingredients:[
+   {id:'motsu',name:'牛もつ（小腸・シマチョウ）',baseQty:160,unit:'g',price:350,checked:true},
+   {id:'cabbage',name:'キャベツ（ざく切り）',baseQty:180,unit:'g',price:40,checked:true},
+   {id:'nira',name:'ニラ',baseQty:.5,unit:'束',price:120,checked:true},
+   {id:'moyashi',name:'もやし',baseQty:70,unit:'g',price:25,checked:true},
+   {id:'tofu',name:'木綿豆腐',baseQty:50,unit:'g',price:40,checked:true},
+   {id:'garlic',name:'にんにく',baseQty:10,unit:'g',price:180,checked:true},
+   {id:'takanotsume',name:'鷹の爪',baseQty:.5,unit:'g',price:200,checked:true},
+   {id:'sesame',name:'白いりごま',baseQty:3,unit:'g',price:150,checked:true}
+  ],
+  seasonings:[
+   {name:'水（スープベース）',ratio:380,unit:'ml',note:'野菜からも水分が出ます'},
+   {name:'醤油（濃口）',ratio:30,unit:'ml',note:'コクのある醤油味'},
+   {name:'料理酒',ratio:25,unit:'ml',note:'もつのうま味を引き立てる'},
+   {name:'みりん',ratio:15,unit:'ml',note:'自然な甘み'},
+   {name:'鶏がらスープの素',ratio:4,unit:'g',note:'うま味の土台'},
+   {name:'和風だしの素',ratio:2.5,unit:'g',note:'昆布・かつお'},
+   {name:'砂糖',ratio:5,unit:'g',note:'味の調整用'}
+  ],
+  guide:{title:'博多風もつ鍋の手順',steps:['生もつは十分に加熱し、必要に応じて下ゆでして余分な脂を落とす。','鍋に水と調味料を合わせて火にかける。','もやし、もつ、豆腐を入れ、その上にキャベツを盛る。','ニラ、にんにく、鷹の爪、ごまをのせて蓋をする。','野菜に火が通ったら完成。もつは中心まで十分に加熱する。'],tips:'生もつは表示の調理方法に従い、中心部まで十分に加熱してください。野菜は煮込みすぎず、好みの食感で火を止めます。'},
+  shime:{heading:'もつ鍋のシメ｜ちゃんぽん麺',subheading:'麺が汁を吸うため、必要なら水やスープを少量足し、味を整えます。',cards:[{icon:'🍜',name:'ちゃんぽん麺',per:.75,unit:'玉',note:'太麺にスープを吸わせます'},{icon:'🥚',name:'雑炊セット',calc:s=>`ごはん ${Math.ceil(s*.5)}杯・卵 ${Math.ceil(s*.5)}個`,note:'麺の後に雑炊にする場合'},{icon:'🧄',name:'追い薬味',calc:()=>`ニラ 1束・ごま 1袋`,note:'刻みネギ・ごまなどを追加'}]}
+ },
+ chanko:{
+  category:'鍋・煮込み',name:'鶏塩ちゃんこ鍋',fullName:'具だくさん・鶏塩ちゃんこ鍋（鶏団子＆たっぷり野菜）',short:'塩ちゃんこ',type:'pot',
+  mainId:'chicken',mainLabel:'鶏肉・鶏団子',mainIcon:'🍗',meatLabel:'鶏もも肉＋鶏団子',meatIcon:'🍗',
+  ingredients:[
+   {id:'chicken',name:'鶏もも肉（一口大）',baseQty:90,unit:'g',price:140,checked:true},
+   {id:'tsukune',name:'鶏団子・つくね',baseQty:70,unit:'g',price:160,checked:true},
+   {id:'hakusai',name:'白菜（ざく切り）',baseQty:160,unit:'g',price:35,checked:true},
+   {id:'negi',name:'長ネギ（斜め切り）',baseQty:.5,unit:'本',price:80,checked:true},
+   {id:'enoki',name:'えのき / しめじ',baseQty:50,unit:'g',price:110,checked:true},
+   {id:'tofu',name:'木綿豆腐',baseQty:60,unit:'g',price:40,checked:true},
+   {id:'aburaage',name:'油揚げ',baseQty:.5,unit:'枚',price:60,checked:true},
+   {id:'carrot',name:'にんじん',baseQty:25,unit:'g',price:50,checked:true}
+  ],
+  seasonings:[
+   {name:'水（スープ用）',ratio:400,unit:'ml',note:'鶏のうま味と合わせる'},
+   {name:'鶏がらスープの素',ratio:5,unit:'g',note:'ベースのコク'},
+   {name:'酒（料理酒）',ratio:25,unit:'ml',note:'風味付け'},
+   {name:'みりん',ratio:10,unit:'ml',note:'まろやかさ'},
+   {name:'塩',ratio:3.5,unit:'g',note:'味の輪郭を決める'},
+   {name:'醤油（薄口）',ratio:8,unit:'ml',note:'香り付け程度'},
+   {name:'おろし生姜・にんにく',ratio:3,unit:'g',note:'臭み消しとアクセント'}
+  ],
+  guide:{title:'鶏塩ちゃんこ鍋の手順',steps:['鍋に水と調味料、生姜・にんにくを入れて沸かす。','鶏もも肉、鶏団子を入れ、アクを取りながら中火で煮る。','にんじん、白菜の芯、油揚げを加えて火を通す。','白菜の葉、きのこ、豆腐、長ネギを加えてひと煮立ちさせる。','野菜がしんなりしたら完成。お好みで黒胡椒や柚子胡椒を添える。'],tips:'鶏肉と鶏団子の両方を入れることで出汁に深いコクが生まれます。'},
+  shime:{heading:'ちゃんこ鍋のシメ｜雑炊・中華麺',subheading:'鶏と野菜のエキスが溶け出したスープを最後まで味わいます。',cards:[{icon:'🍜',name:'中華麺 / うどん',per:.6,unit:'玉',note:'塩ラーメン風に楽しめます'},{icon:'🍚',name:'たまご雑炊',calc:s=>`ごはん ${Math.ceil(s*.6)}杯・卵 ${Math.ceil(s*.5)}個`,note:'仕上げに小ねぎと海苔を'},{icon:'🧂',name:'黒胡椒・柚子胡椒',calc:()=>`各1つ`,note:'味変に最適'}]}
+ },
+ potaufeu:{
+  category:'大鍋・キャンプ',name:'豪快ポトフ',fullName:'ダッチオーブンで作る豪快ブロック肉ポトフ',short:'豪快ポトフ',type:'pot',
+  mainId:'bacon',mainLabel:'ブロック肉・ベーコン',mainIcon:'🥓',meatLabel:'ソーセージ＋ベーコン',meatIcon:'🌭',
+  ingredients:[
+   {id:'bacon',name:'厚切りベーコン（または豚肩ブロック）',baseQty:90,unit:'g',price:240,checked:true},
+   {id:'sausage',name:'粗挽きソーセージ',baseQty:2,unit:'本',price:60,checked:true},
+   {id:'onion',name:'玉ねぎ（半分または小丸ごと）',baseQty:.5,unit:'個',price:50,checked:true},
+   {id:'carrot',name:'にんじん（大きめ乱切り）',baseQty:50,unit:'g',price:50,checked:true},
+   {id:'potato',name:'じゃがいも（丸ごと/半分）',baseQty:80,unit:'g',price:45,checked:true},
+   {id:'cabbage',name:'キャベツ（くし形切り）',baseQty:120,unit:'g',price:40,checked:true},
+   {id:'broccoli',name:'ブロッコリー / カブ',baseQty:30,unit:'g',price:90,checked:true}
+  ],
+  seasonings:[
+   {name:'水',ratio:360,unit:'ml',note:'野菜から濃い甘みが出ます'},
+   {name:'コンソメ（固形/顆粒）',ratio:4.5,unit:'g',note:'キューブ約1個/2人分'},
+   {name:'白ワイン（または酒）',ratio:15,unit:'ml',note:'香り付け'},
+   {name:'塩・ブラックペッパー',ratio:2,unit:'g',note:'味の調整'},
+   {name:'ローリエ（月桂樹の葉）',ratio:.2,unit:'枚',note:'肉とハーブの香り'},
+   {name:'粒マスタード（添え用）',ratio:10,unit:'g',note:'現地で添える'}
+  ],
+  guide:{title:'豪快ポトフの手順',steps:['鍋（ダッチオーブン）にオリーブ油を薄く引き、ベーコンとソーセージに焼き色をつける。','水、白ワイン、コンソメ、ローリエ、玉ねぎ、にんじんを入れ中火にかける。','沸騰したら弱火にし、じゃがいも、キャベツを加えて蓋をする。','弱火〜トロ火で25〜35分じっくり煮込む（炭火なら上火も少し置く）。','じゃがいもに串がすっと通ったら完成。粒マスタードを添えて提供。'],tips:'具材を大きく切るのがポイント。弱火でじっくり煮ることで野菜の甘みがスープに溶け出します。'},
+  shime:{heading:'ポトフのシメ｜スープパスタ・リゾット',subheading:'野菜とソーセージの出汁を吸わせる至福のアレンジ。',cards:[{icon:'🍝',name:'ショートパスタ / スパゲティ',per:.5,unit:'束',note:'ペンネやファルファッレが好相性'},{icon:'🧀',name:'粉チーズ・オリーブ油',calc:()=>`各1本`,note:'パスタやリゾットの仕上げに'},{icon:'🍅',name:'味変トマト缶',calc:s=>`${Math.max(1,Math.ceil(s/8))}缶`,note:'トマトスープに味変'}]}
+ },
+ paella:{
+  category:'大鍋・キャンプ',name:'26cmパエリア',fullName:'26cmフライパンで作る海鮮パエリア（家庭・キャンプ両用）',short:'フライパンパエリア',type:'pan26',
+  mainId:'rice',mainLabel:'生米（洗わない）',mainIcon:'🌾',meatLabel:'有頭エビ＋鶏もも肉',meatIcon:'🦐',
+  ingredients:[
+   {id:'rice',name:'お米（無洗米または生米・洗わず使用）',baseQty:75,unit:'g',price:35,checked:true},
+   {id:'shrimp',name:'有頭エビ（または赤エビ）',baseQty:1.2,unit:'尾',price:130,checked:true},
+   {id:'asari',name:'アサリ（砂抜き済み）',baseQty:60,unit:'g',price:120,checked:true},
+   {id:'chicken',name:'鶏もも肉（一口大）',baseQty:60,unit:'g',price:140,checked:true},
+   {id:'paprika',name:'パプリカ（赤・黄・細切り）',baseQty:.3,unit:'個',price:80,checked:true},
+   {id:'onion',name:'玉ねぎ（みじん切り）',baseQty:35,unit:'g',price:40,checked:true},
+   {id:'lemon',name:'レモン（くし形切り）',baseQty:.25,unit:'個',price:50,checked:true}
+  ],
+  seasonings:[
+   {name:'温水（スープ用）',ratio:140,unit:'ml',note:'お米の約1.8倍（26cmで約1.5〜2合/回）'},
+   {name:'白ワイン（または酒）',ratio:20,unit:'ml',note:'アサリ蒸し＆香り付け'},
+   {name:'コンソメ（顆粒）',ratio:3.5,unit:'g',note:'魚介だしの素でも美味'},
+   {name:'サフラン（またはカレー粉/パエリア素）',ratio:.2,unit:'g',note:'黄金色のスープ'},
+   {name:'おろしにんにく',ratio:3,unit:'g',note:'オリーブ油で香りを出す'},
+   {name:'オリーブオイル',ratio:10,unit:'ml',note:'炒め＆仕上げ用'},
+   {name:'塩・粗挽き黒胡椒',ratio:1.5,unit:'g',note:'スープの塩気を調整'}
+  ],
+  guide:{title:'26cmフライパンで作るパエリア手順',steps:[
+   'フライパン（26cm）にオリーブ油とにんにくを熱し、鶏肉・エビ・パプリカをさっと炒めて一旦取り出す。',
+   '同じフライパンで玉ねぎを炒め、透き通ったら「洗っていない生米」を加えて全体に油をなじませる。',
+   '温水、白ワイン、コンソメ、サフラン、塩を混ぜた黄金スープを注ぎ、米を平らにならす。',
+   '砂抜きアサリ、鶏肉、エビ、パプリカを放射状に彩りよく並べる。',
+   '蓋（アルミホイルでも可）をして強火で沸騰後、弱火で12分加熱。水分が引いたら最後に強火で1分パチパチとおこげを作り、火を止めて10分蒸らす。'
+  ],tips:'26cmフライパン1台で一度に美味しく炊ける上限は約2〜3人分（米1.5〜2合）です。人数が多い場合は2台並列か2回に分けて作ると失敗しません。'},
+  shime:{heading:'パエリアのアクセント｜味変トッピング',subheading:'レモンをたっぷり絞り、特製ソースで楽しみます。',cards:[{icon:'🍋',name:'追いレモン',calc:s=>`${Math.max(1,Math.ceil(s*.3))}個`,note:'くし形に切って全体に絞る'},{icon:'🧄',name:'アイオリソース（にんにくマヨ）',calc:()=>`マヨネーズ＋おろしにんにく`,note:'本場スペインの王道トッピング'},{icon:'🌿',name:'刻みパセリ',calc:()=>`1パック`,note:'仕上げの彩りに'}]}
+ },
+ pulledpork:{
+  category:'大鍋・キャンプ',name:'仕込みプルドポーク',fullName:'お家で下処理済！現地でほぐすだけの簡単プルドポーク',short:'仕込みプルドポーク',type:'quickpork',
+  mainId:'porkblock',mainLabel:'豚肩ロース（ブロック肉）',mainIcon:'🍖',meatLabel:'豚肩ロース塊肉',meatIcon:'🍖',
+  ingredients:[
+   {id:'porkblock',name:'豚肩ロース塊肉（下処理前重量）',baseQty:180,unit:'g',price:190,checked:true},
+   {id:'buns',name:'バーガー用バンズ / ロールパン',baseQty:1,unit:'個',price:80,checked:true},
+   {id:'bbq_sauce',name:'BBQソース（絡め用）',baseQty:30,unit:'g',price:60,checked:true},
+   {id:'coleslaw',name:'千切りキャベツ（コールスロー用）',baseQty:50,unit:'g',price:35,checked:true},
+   {id:'ziploc',name:'耐熱ジッパー保存袋（現地持参用）',baseQty:.1,unit:'袋',price:30,checked:true}
+  ],
+  seasonings:[
+   {name:'砂糖（またはブラウンシュガー）',ratio:5,unit:'g',note:'【家仕込み用】すり込みスパイス'},
+   {name:'塩・黒胡椒',ratio:4,unit:'g',note:'【家仕込み用】しっかりもみ込む'},
+   {name:'パプリカパウダー・ガーリック粉',ratio:3.5,unit:'g',note:'【家仕込み用】BBQの香り'},
+   {name:'水またはコーラ・リンゴジュース',ratio:50,unit:'ml',note:'【家仕込み用】煮込み/加圧水分'},
+   {name:'バター（またはオリーブ油）',ratio:5,unit:'g',note:'【現地用】バンズ焼き＆再加熱用'}
+  ],
+  guide:{title:'自宅で下処理 ＋ 現地快速仕上げ手順',steps:[
+   '【自宅で下処理】：豚肩ロース塊に塩・砂糖・スパイス類をもみ込む。',
+   '【自宅で加熱】：圧力鍋なら水分50mlと肉を入れ「加圧25〜30分」放置。普通鍋なら弱火で90分煮込むか、140℃オーブンで90分蒸し焼きにして竹串が抵抗なくスッと通る柔らかさにする。',
+   '【持参】：煮汁ごとジッパー袋（または保存容器）に入れ、粗熱を取ってクーラーボックスで現地へ。',
+   '【現地で10分仕上げ】：フライパンや鉄板（またはアルミホイル皿）にあけて軽く温め直し、フォーク2本でお肉を繊維状に細かく引き裂く（プルする）。',
+   '【仕上げ】：BBQソースをドバッと絡めて煮詰め、軽くトーストしたバンズにコールスローと一緒に山盛りに挟んで完成！'
+  ],tips:'現地で長時間炭火やダッチオーブンを見張る必要ゼロ！自宅で圧力鍋・オーブン加熱を済ませておけば、現地では10分で最高にジューシーな本格プルドポークが楽しめます。'},
+  shime:{heading:'プルドポークのアレンジ｜バンズ＆タコス',subheading:'挟むパンや生地を変えて自由に楽しめます。',cards:[{icon:'🍔',name:'BBQポークバーガー',calc:s=>`バンズ ${Math.ceil(s)}個分`,note:'コールスローと一緒にサンド'},{icon:'🌮',name:'トルティーヤ・タコス',calc:()=>`トルティーヤ 1袋`,note:'サルサソースと合わせて'},{icon:'🧀',name:'とろけるチーズ',calc:()=>`1袋`,note:'ホットサンドにしても絶品'}]}
+ }
 };
-const BASE_EQUIPMENT=[{name:'お椀・耐熱深皿',calc:n=>`${Math.ceil(n*2.2)}個（2杯＋予備）`},{name:'割り箸',calc:n=>`${Math.ceil(n*2)}膳`},{name:'お玉・穴あきお玉',calc:()=>`各鍋に1〜2本`},{name:'ウェットティッシュ・ペーパー',calc:()=>`各2パック`},{name:'ゴミ袋',calc:()=>`大サイズ各2枚`},{name:'保存袋',calc:()=>`M/L 1箱`},{name:'アルミホイル・ラップ',calc:()=>`各1本`},{name:'カセットコンロ用の風防',calc:()=>`屋外では必須`}];
-const STORAGE_KEY='nabeshitaji_state_v1';
+
+const BASE_EQUIPMENT=[{name:'お椀・耐熱深皿',calc:n=>`${Math.ceil(n*2.2)}個（2杯＋予備）`},{name:'割り箸・フォーク',calc:n=>`${Math.ceil(n*2)}膳`},{name:'お玉・トング・フライ返し',calc:()=>`各調理台に1〜2本`},{name:'ウェットティッシュ・ペーパー',calc:()=>`各2パック`},{name:'ゴミ袋',calc:()=>`大サイズ各2枚`},{name:'アルミホイル・厚手ラップ',calc:()=>`各1本`},{name:'耐熱グローブ・軍手',calc:()=>`2双`},{name:'カセットコンロ用の風防',calc:()=>`屋外では必須`}];
+const STORAGE_KEY='nabeshitaji_state_v3';
 let currentPresetKey='yamagata',currentIngredients=structuredClone(PRESETS.yamagata.ingredients),equipmentChecks={},cookChecks={};
 const $=id=>document.getElementById(id), esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function num(id,fallback=0){const v=Number($(id).value);return Number.isFinite(v)?Math.max(0,Math.min(1000000,v)):fallback}
@@ -222,10 +383,59 @@ function yen(n){return '¥'+Math.round(Number(n)||0).toLocaleString('ja-JP')}
 function compactQty(q,unit){if(unit==='g'){return q>=1000?`${(q/1000).toFixed(2)} kg`: `${Math.round(q).toLocaleString()} g`}return `${Number.isInteger(q)?q:q.toFixed(1)} ${unit}`}
 function costOf(item,servings){const qty=item.baseQty*servings;return item.unit==='g'?Math.round(qty/100*(Number(item.price)||0)):Math.round(qty*(Number(item.price)||0))}
 function ingredientCost(){return currentIngredients.reduce((sum,item)=>sum+(item.checked?costOf(item,peopleInfo().servings):0),0)}
-function fmtSeasoning(amount,unit){if(unit==='ml'&&amount>=1000)return `${(amount/1000).toFixed(2)} L (${Math.round(amount).toLocaleString()} ml)`;if(unit==='g'&&amount>=1000)return `${(amount/1000).toFixed(2)} kg (${Math.round(amount).toLocaleString()} g)`;return `${Math.round(amount).toLocaleString()} ${unit}`}
-function waterLiters(servings){const w=PRESETS[currentPresetKey].seasonings.find(s=>s.name.includes('水'));return (w?w.ratio:400)*servings/1000}
-function potRecommendation(servings){const contents=waterLiters(servings)*1.45,needed=contents*1.3;if(needed<=8)return{contents,needed,size:'10 L以上',diameter:'28 cm前後'};if(needed<=12)return{contents,needed,size:'12〜15 L',diameter:'30〜33 cm'};if(needed<=18)return{contents,needed,size:'20 L前後',diameter:'33 cm以上'};return{contents,needed,size:'大鍋2台に分散',diameter:'20 L鍋を2台目安'}}
-function renderPresets(){const data=[['yamagata','🍲','山形・芋煮','牛肉 × 醤油だし'],['tonjiru','🥓','王道・豚汁','豚バラ × 根菜味噌'],['motsunabe','🫕','博多・もつ鍋','牛もつ × キャベツ']];$('presetSelector').innerHTML=data.map(([key,icon,title,sub])=>`<button class="preset ${currentPresetKey===key?'active':''}" data-preset="${key}" type="button" aria-pressed="${currentPresetKey===key}"><strong><span class="preset-icon">${icon}</span>${title}</strong><small>${sub}</small></button>`).join('')}
+function fmtSeasoning(amount,unit){if(unit==='ml'&&amount>=1000)return `${(amount/1000).toFixed(2)} L (${Math.round(amount).toLocaleString()} ml)`;if(unit==='g'&&amount>=1000)return `${(amount/1000).toFixed(2)} kg (${Math.round(amount).toLocaleString()} g)`;return `${amount<1?amount.toFixed(1):Math.round(amount).toLocaleString()} ${unit}`}
+
+function waterLiters(servings){
+  const p=PRESETS[currentPresetKey];
+  const w=p.seasonings.find(s=>s.name.includes('水')||s.name.includes('温水')||s.name.includes('出汁'));
+  return (w?w.ratio:350)*servings/1000;
+}
+
+function cookEquipmentRecommendation(servings){
+  const p=PRESETS[currentPresetKey];
+  if(p.type==='pan26'){
+    const batches = Math.max(1, Math.ceil(servings / 2.5));
+    const riceGrams = Math.round(75 * servings);
+    const riceGou = (riceGrams / 150).toFixed(1);
+    return{
+      contents: servings * 0.25,
+      size: batches === 1 ? '家庭用フライパン 26cm（1台）' : `26cmフライパン × ${batches}台（または${batches}回）`,
+      diameter:'直径 26 cm（深型推奨）',
+      type:'26cmフライパン',
+      gas:`${Math.max(1,Math.ceil(batches*1.2))}本（予備込み）`,
+      note:`※お米総量約${riceGrams}g（約${riceGou}合）。26cmフライパン1台で1回に美味しく炊けるのは約2〜3人前（1.5〜2合）です。`
+    };
+  }
+  if(p.type==='quickpork'){
+    const meatKg = ((180 * servings) / 1000).toFixed(2);
+    return{
+      contents: servings * 0.22,
+      size: '自宅：圧力鍋/オーブン ＋ 現地：フライパン/鉄板',
+      diameter:'現地は26cmフライパン等でOK',
+      type:'家下処理＋現地フライパン',
+      gas:`1〜2本（温め直しのみで省エネ）`,
+      note:`※肉ブロック計${meatKg}kg。自宅で下煮込み・蒸し焼きを済ませ、現地ではフライパン等で温めてほぐすだけなのでダッチオーブンや大量の炭は不要です。`
+    };
+  }
+  const contents=waterLiters(servings)*1.45,needed=contents*1.3;
+  if(needed<=8)return{contents,needed,size:'10 L以上',diameter:'28 cm前後',type:'大鍋 / 寸胴',gas:`${Math.max(2,Math.ceil(servings/5))}本（予備込み）`,note:'※火力・風・気温で変わるため、ボンベは予備を含む目安です。'};
+  if(needed<=12)return{contents,needed,size:'12〜15 L',diameter:'30〜33 cm',type:'大鍋 / 寸胴',gas:`${Math.max(2,Math.ceil(servings/5))}本（予備込み）`,note:'※火力・風・気温で変わるため、ボンベは予備を含む目安です。'};
+  if(needed<=18)return{contents,needed,size:'20 L前後',diameter:'33 cm以上',type:'大寸胴鍋',gas:`${Math.max(3,Math.ceil(servings/5))}本（予備込み）`,note:'※火力・風・気温で変わるため、ボンベは予備を含む目安です。'};
+  return{contents,needed,size:'大鍋2台に分散',diameter:'20 L鍋を2台目安',type:'大鍋2台分散',gas:`${Math.max(4,Math.ceil(servings/4))}本（予備込み）`,note:'※大容量のため鍋とコンロを2台に分けるのが安全です。'};
+}
+
+function renderPresets(){
+  const list=[
+   ['yamagata','🍲','山形・芋煮','牛肉×醤油'],
+   ['tonjiru','🥓','王道・豚汁','豚バラ×根菜'],
+   ['motsunabe','🫕','博多・もつ鍋','牛もつ×キャベツ'],
+   ['chanko','🍗','鶏塩ちゃんこ','鶏団子×塩出汁'],
+   ['potaufeu','🥕','豪快ポトフ','ブロック肉×野菜'],
+   ['paella','🥘','26cmパエリア','家庭用パンで本格'],
+   ['pulledpork','🍖','仕込みプルドポーク','家で下処理×現地ほぐすだけ']
+  ];
+  $('presetSelector').innerHTML=list.map(([key,icon,title,sub])=>`<button class="preset ${currentPresetKey===key?'active':''}" data-preset="${key}" type="button" aria-pressed="${currentPresetKey===key}"><strong><span class="preset-icon">${icon}</span>${title}</strong><small>${sub}</small></button>`).join('');
+}
 
 function renderIngredients(servings){
   const body=$('ingredientsBody');let total=0;
@@ -236,7 +446,7 @@ function renderIngredients(servings){
     return `<tr class="${item.checked?'':'excluded'}">
       <td class="td-center col-check"><input class="ingredient-check" type="checkbox" data-index="${index}" aria-label="${esc(item.name)}を購入" ${item.checked?'checked':''}></td>
       <td><input class="field-mini item-name" type="text" value="${esc(item.name)}" data-index="${index}" data-field="name" aria-label="食材名"></td>
-      <td class="td-right"><input class="field-mini qty-edit" type="number" min="0" step="0.1" value="${esc(item.baseQty)}" data-index="${index}" data-field="baseQty" aria-label="1杯分の量"><span class="unit-label">${esc(item.unit)}</span></td>
+      <td class="td-right"><input class="field-mini qty-edit" type="number" min="0" step="0.1" value="${esc(item.baseQty)}" data-index="${index}" data-field="baseQty" aria-label="1人分の量"><span class="unit-label">${esc(item.unit)}</span></td>
       <td class="td-right need-qty">${esc(compactQty(qty,item.unit))}</td>
       <td class="td-right"><input class="field-mini price-edit" type="number" min="0" step="1" value="${esc(item.price)}" data-index="${index}" data-field="price" aria-label="単価"><span class="unit-label">${priceUnit}</span></td>
       <td class="td-right sub-total">${yen(subtotal)}</td>
@@ -247,34 +457,303 @@ function renderIngredients(servings){
   return total;
 }
 
-function renderBudget(cost,p){const revenue=p.adult*num('feeAdult')+p.child*num('feeChild')+p.big*num('feeBigEater'),expenses=cost+num('extraBudget'),balance=revenue-expenses;$('totalRevenue').textContent=yen(revenue);$('totalExpenses').textContent=yen(expenses);$('totalBalance').textContent=(balance>=0?'+':'−')+yen(Math.abs(balance));$('budgetRatio').textContent=`支出 ${yen(expenses)} ／ 集金 ${yen(revenue)}`;const badge=$('budgetBadge'),box=$('balanceBox');badge.textContent=balance>=0?'黒字':'不足';badge.classList.toggle('negative',balance<0);box.classList.toggle('negative',balance<0);if(revenue>0&&balance>=0){$('expenseBar').style.width=`${Math.min(100,expenses/revenue*100)}%`;$('expenseBar').style.background='var(--tomato)';$('surplusBar').style.width=`${Math.max(0,100-expenses/revenue*100)}%`;$('budgetWarning').textContent=''}else if(expenses>0){$('expenseBar').style.width='100%';$('expenseBar').style.background='var(--tomato)';$('surplusBar').style.width='0%';$('budgetWarning').textContent=`集金が支出を ${yen(Math.abs(balance))} 下回っています。`}else{$('expenseBar').style.width='0%';$('surplusBar').style.width='0%';$('budgetWarning').textContent=''}}
-function renderSeasonings(servings){const preset=PRESETS[currentPresetKey];$('styleBadge').textContent=preset.fullName;$('seasoningList').innerHTML=preset.seasonings.map(s=>`<div class="season-item"><div><span class="season-name">${esc(s.name)}</span><span class="season-note">${esc(s.note)}（1杯分 ${s.ratio}${s.unit}）</span></div><strong class="season-amount">${esc(fmtSeasoning(s.ratio*servings,s.unit))}</strong></div>`).join('');$('guideBox').innerHTML=`<h3>${esc(preset.guide.title)}</h3><ol>${preset.guide.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="tip">${esc(preset.guide.tips)}</p>`}
-function shimeValue(card,s){if(card.per)return `${Math.max(2,Math.ceil(s*card.per))} ${card.unit}`;return card.calc(s)}
-function renderShime(servings){const s=PRESETS[currentPresetKey].shime;$('shimeHeading').textContent=s.heading;$('shimeSubheading').textContent=s.subheading;$('shimeCards').innerHTML=s.cards.map(c=>`<article class="recipe-card"><span class="recipe-icon">${esc(c.icon)}</span><h3>${esc(c.name)}</h3><p>${esc(c.note)}</p><div class="recipe-amount">${esc(shimeValue(c,servings))}</div></article>`).join('')}
-function renderEquipment(servings,rawPeople){const p=potRecommendation(servings);$('equipVolume').textContent=`約 ${p.contents.toFixed(1)} L`;$('equipPot').textContent=p.size;$('equipDiameter').textContent=p.diameter;$('equipGas').textContent=`${Math.max(2,Math.ceil(servings/5))}本（予備込み）`;$('equipmentList').innerHTML=BASE_EQUIPMENT.map((item,i)=>`<label class="check-item"><span class="check-left"><input type="checkbox" data-equip="${i}" ${equipmentChecks[i]?'checked':''}><span>${esc(item.name)}</span></span><span class="check-amount">${esc(item.calc(rawPeople))}</span></label>`).join('')}
-function renderOverview(servings,p){const preset=PRESETS[currentPresetKey],main=currentIngredients.find(i=>i.id===preset.mainId)||currentIngredients[0],meat=currentIngredients.find(i=>['beef','pork','motsu'].includes(i.id));$('mainIcon').textContent=preset.mainIcon;$('mainLabel').textContent=preset.mainLabel;$('mainQty').textContent=main?compactQty(main.baseQty*servings,main.unit):'—';$('meatLabel').textContent=preset.meatLabel;$('meatQty').textContent=meat?compactQty(meat.baseQty*servings,meat.unit):'—';$('waterQty').textContent=`${waterLiters(servings).toFixed(1)} L`;$('potQuick').textContent=potRecommendation(servings).size;$('heroPeople').textContent=`参加 ${p.raw}名`;$('heroStyle').textContent=preset.short;$('heroServings').textContent=servings.toFixed(1);$('servingChip').textContent=servings.toFixed(1);$('servingMeter').style.width=`${Math.min(100,servings/40*100)}%`}
-function saveState(){try{const state={preset:currentPresetKey,ingredients:currentIngredients,adult:$('adultCount').value,child:$('childCount').value,big:$('bigEaterCount').value,bowls:$('bowlsPerPerson').value,feeAdult:$('feeAdult').value,feeChild:$('feeChild').value,feeBig:$('feeBigEater').value,extra:$('extraBudget').value,equipmentChecks,cookChecks};localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){}}
-function renderAll(){const p=peopleInfo(),cost=renderIngredients(p.servings);renderPresets();renderOverview(p.servings,p);renderBudget(cost,p);renderSeasonings(p.servings);renderShime(p.servings);renderEquipment(p.servings,p.raw);saveState()}
-function loadState(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(!s)return; if(PRESETS[s.preset])currentPresetKey=s.preset;for(const [id,key] of [['adultCount','adult'],['childCount','child'],['bigEaterCount','big'],['bowlsPerPerson','bowls'],['feeAdult','feeAdult'],['feeChild','feeChild'],['feeBigEater','feeBig'],['extraBudget','extra']])if(s[key]!==undefined)$(id).value=s[key];if(Array.isArray(s.ingredients))currentIngredients=s.ingredients.map(x=>({...x,baseQty:Math.max(0,Number(x.baseQty)||0),price:Math.max(0,Number(x.price)||0),checked:x.checked!==false}));equipmentChecks=s.equipmentChecks||{};cookChecks=s.cookChecks||{}}catch(e){currentPresetKey='yamagata';currentIngredients=structuredClone(PRESETS.yamagata.ingredients)}}
-let toastTimer;function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2600)}
-function switchPreset(key){if(!PRESETS[key])return;currentPresetKey=key;currentIngredients=structuredClone(PRESETS[key].ingredients);renderAll();toast(`${PRESETS[key].short}に切り替えました（食材編集は初期化されます）`)}
-function renderCook(){const preset=PRESETS[currentPresetKey],serv=peopleInfo().servings;$('cookTitle').textContent=`${preset.fullName}｜現地調理`;$('cookSubtitle').textContent=`${serv.toFixed(1)}杯分・調味料を計量してから調理してください`;$('cookSeasonings').innerHTML=preset.seasonings.map(s=>`<div class="cook-season"><span>${esc(s.name)}</span><strong>${esc(fmtSeasoning(s.ratio*serv,s.unit))}</strong></div>`).join('');$('cookSteps').innerHTML=preset.guide.steps.map((step,i)=>`<div class="cook-step ${cookChecks[`${currentPresetKey}_${i}`]?'done':''}" data-cook-step="${i}" role="button" tabindex="0"><span class="step-num">${i+1}</span><span class="step-text">${esc(step)}</span><span class="step-check">${cookChecks[`${currentPresetKey}_${i}`]?'✓':'○'}</span></div>`).join('');$('cookTips').textContent='コツ：'+preset.guide.tips;$('cookShime').innerHTML=preset.shime.cards.map(c=>`<div><span>${esc(c.icon)} ${esc(c.name)}</span><strong>${esc(shimeValue(c,serv))}</strong></div>`).join('')}
-function openCook(){renderCook();$('cookModal').classList.add('open');document.body.style.overflow='hidden'}function closeCook(){$('cookModal').classList.remove('open');document.body.style.overflow=''}
-function parseDelimited(text,delimiter){const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++}else quoted=!quoted}else if(c===delimiter&&!quoted){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(v=>v.trim()!==''))rows.push(row);row=[];cell=''}else cell+=c}row.push(cell);if(row.some(v=>v.trim()!==''))rows.push(row);return rows}
-function parseImport(text){text=text.replace(/^\uFEFF/,'').trim();if(!text)return[];const delimiter=text.includes('\t')?'\t':',';const rows=parseDelimited(text,delimiter);const parsed=[];for(let r=0;r<rows.length;r++){const cols=rows[r].map(x=>x.trim());if(!cols.length)continue;if(r===0&&/(食材|名前|品名|項目)/.test(cols[0]))continue;const name=cols[0];if(!name)continue;const qtyRaw=cols[1]||'50';let unit=(cols[2]||'').trim();let qtyMatch=qtyRaw.replace(/,/g,'').match(/^\s*(-?\d+(?:\.\d+)?)\s*(kg|g|本|束|個|袋|玉|丁|枚|ml|L)?\s*$/i);if(!qtyMatch)continue;let qty=Number(qtyMatch[1]);if(!Number.isFinite(qty)||qty<0)continue;unit=unit||qtyMatch[2]||'g';unit=unit.toLowerCase()==='kg'?'g':unit.toLowerCase()==='l'?'ml':unit;if((qtyMatch[2]||'').toLowerCase()==='kg'&&!cols[2])qty*=1000;if(unit.toLowerCase()==='kg'){unit='g';qty*=1000}if(unit.toLowerCase()==='l'){unit='ml';qty*=1000}const priceRaw=(cols[3]||'').replace(/[¥￥,\s]/g,'');const price=priceRaw===''?(unit==='g'?120:80):Number(priceRaw);if(!Number.isFinite(price)||price<0)continue;parsed.push({id:`import_${Date.now()}_${r}`,name,baseQty:qty,unit,price,checked:true})}return parsed}
-async function copyText(text){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return true}}catch(e){}try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
-function makeShareText(){const p=peopleInfo(),preset=PRESETS[currentPresetKey],cost=ingredientCost(),revenue=p.adult*num('feeAdult')+p.child*num('feeChild')+p.big*num('feeBigEater'),expenses=cost+num('extraBudget'),bal=revenue-expenses;let out=[`【${preset.fullName}｜買い出しメモ】`,`参加：大人${p.adult}名／子ども${p.child}名／大食い${p.big}名（計${p.raw}名・${p.servings.toFixed(1)}杯分）`,`集金 ${yen(revenue)}／支出概算 ${yen(expenses)}／差額 ${bal>=0?'+':'−'}${yen(Math.abs(bal))}`,'','［食材］'];currentIngredients.filter(i=>i.checked).forEach(i=>{const q=i.baseQty*p.servings;out.push(`・${i.name}：${compactQty(q,i.unit)}`)});out.push('','［調味料］');preset.seasonings.forEach(s=>out.push(`・${s.name}：${fmtSeasoning(s.ratio*p.servings,s.unit)}`));const pot=potRecommendation(p.servings);out.push('','［鍋・熱源］',`・推奨鍋：${pot.size}（${pot.diameter}）`,`・ガスボンベ：約${Math.max(2,Math.ceil(p.servings/5))}本（予備込み）`);return out.join('\n')}
+function renderBudget(cost,p){
+  const revenue=p.adult*num('feeAdult')+p.child*num('feeChild')+p.big*num('feeBigEater'),expenses=cost+num('extraBudget'),balance=revenue-expenses;
+  $('totalRevenue').textContent=yen(revenue);$('totalExpenses').textContent=yen(expenses);$('totalBalance').textContent=(balance>=0?'+':'−')+yen(Math.abs(balance));
+  $('budgetRatio').textContent=`支出 ${yen(expenses)} ／ 集金 ${yen(revenue)}`;
+  const badge=$('budgetBadge'),box=$('balanceBox');badge.textContent=balance>=0?'黒字':'不足';badge.classList.toggle('negative',balance<0);box.classList.toggle('negative',balance<0);
+  if(revenue>0&&balance>=0){
+    $('expenseBar').style.width=`${Math.min(100,expenses/revenue*100)}%`;$('expenseBar').style.background='var(--tomato)';$('surplusBar').style.width=`${Math.max(0,100-expenses/revenue*100)}%`;$('budgetWarning').textContent='';
+  }else if(expenses>0){
+    $('expenseBar').style.width='100%';$('expenseBar').style.background='var(--tomato)';$('surplusBar').style.width='0%';$('budgetWarning').textContent=`集金が支出を ${yen(Math.abs(balance))} 下回っています。`;
+  }else{$('expenseBar').style.width='0%';$('surplusBar').style.width='0%';$('budgetWarning').textContent=''}
+}
+
+function renderSeasonings(servings){
+  const preset=PRESETS[currentPresetKey];
+  $('styleBadge').textContent=preset.fullName;
+  $('seasoningList').innerHTML=preset.seasonings.map(s=>`<div class="season-item"><div><span class="season-name">${esc(s.name)}</span><span class="season-note">${esc(s.note)}（1人分 ${s.ratio}${s.unit}）</span></div><strong class="season-amount">${esc(fmtSeasoning(s.ratio*servings,s.unit))}</strong></div>`).join('');
+  $('guideBox').innerHTML=`<h3>${esc(preset.guide.title)}</h3><ol>${preset.guide.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="tip">${esc(preset.guide.tips)}</p>`;
+}
+
+function shimeValue(card,s){if(card.per)return `${Math.max(1,Math.ceil(s*card.per))} ${card.unit}`;return card.calc(s)}
+function renderShime(servings){
+  const s=PRESETS[currentPresetKey].shime;
+  $('shimeHeading').textContent=s.heading;
+  $('shimeSubheading').textContent=s.subheading;
+  $('shimeCards').innerHTML=s.cards.map(c=>`<article class="recipe-card"><span class="recipe-icon">${esc(c.icon)}</span><h3>${esc(c.name)}</h3><p>${esc(c.note)}</p><div class="recipe-amount">${esc(shimeValue(c,servings))}</div></article>`).join('');
+}
+
+function renderEquipment(servings,rawPeople){
+  const p=cookEquipmentRecommendation(servings);
+  $('equipVolume').textContent=`約 ${p.contents.toFixed(1)} L`;
+  $('equipPot').textContent=p.size;
+  $('equipDiameter').textContent=p.diameter;
+  $('equipGas').textContent=p.gas;
+  
+  const isPan = PRESETS[currentPresetKey].type === 'pan26';
+  const isQuickPork = PRESETS[currentPresetKey].type === 'quickpork';
+  $('equipRowTitle').textContent = isPan ? '推奨フライパン構成' : (isQuickPork ? '推奨調理器具（下処理＋現地）' : '推奨鍋（安全余裕込）');
+  $('equipDimTitle').textContent = isPan ? 'フライパンの直径' : (isQuickPork ? '現地器具目安' : '鍋の直径目安');
+  $('equipNote').textContent = p.note;
+  
+  $('equipmentList').innerHTML=BASE_EQUIPMENT.map((item,i)=>`<label class="check-item"><span class="check-left"><input type="checkbox" data-equip="${i}" ${equipmentChecks[i]?'checked':''}><span>${esc(item.name)}</span></span><span class="check-amount">${esc(item.calc(rawPeople))}</span></label>`).join('');
+}
+
+function renderOverview(servings,p){
+  const preset=PRESETS[currentPresetKey];
+  const main=currentIngredients.find(i=>i.id===preset.mainId)||currentIngredients[0];
+  const meat=currentIngredients.find(i=>['beef','pork','motsu','chicken','bacon','porkblock','shrimp'].includes(i.id))||currentIngredients[1];
+  
+  $('mainIcon').textContent=preset.mainIcon;
+  $('mainLabel').textContent=preset.mainLabel;
+  $('mainQty').textContent=main?compactQty(main.baseQty*servings,main.unit):'—';
+  
+  $('meatIcon').textContent=preset.meatIcon||'🥩';
+  $('meatLabel').textContent=preset.meatLabel;
+  $('meatQty').textContent=meat?compactQty(meat.baseQty*servings,meat.unit):'—';
+  
+  const w = waterLiters(servings);
+  $('waterQty').textContent=w>=1?`${w.toFixed(1)} L`:`${Math.round(w*1000)} ml`;
+  $('liquidLabel').textContent = preset.type==='pan26' ? '必要なスープ量' : (preset.type==='quickpork' ? '仕込み水分量' : '必要な水分・出汁');
+  
+  const equip=cookEquipmentRecommendation(servings);
+  $('potQuick').textContent=equip.size;
+  $('equipLabel').textContent = preset.type==='pan26'?'推奨フライパン':(preset.type==='quickpork'?'下処理＋現地器具':'推奨鍋サイズ');
+  
+  $('heroPeople').textContent=`参加 ${p.raw}名`;
+  $('heroStyle').textContent=preset.short;
+  $('heroServings').textContent=servings.toFixed(1);
+  $('servingChip').textContent=servings.toFixed(1);
+  $('servingMeter').style.width=`${Math.min(100,servings/40*100)}%`;
+}
+
+function saveState(){
+  try{
+    const state={preset:currentPresetKey,ingredients:currentIngredients,adult:$('adultCount').value,child:$('childCount').value,big:$('bigEaterCount').value,bowls:$('bowlsPerPerson').value,feeAdult:$('feeAdult').value,feeChild:$('feeChild').value,feeBig:$('feeBigEater').value,extra:$('extraBudget').value,equipmentChecks,cookChecks};
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }catch(e){}
+}
+
+function renderAll(){
+  const p=peopleInfo(),cost=renderIngredients(p.servings);
+  renderPresets();renderOverview(p.servings,p);renderBudget(cost,p);renderSeasonings(p.servings);renderShime(p.servings);renderEquipment(p.servings,p.raw);
+  saveState();
+}
+
+function loadState(){
+  try{
+    const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
+    if(!s)return;
+    if(PRESETS[s.preset])currentPresetKey=s.preset;
+    for(const [id,key] of [['adultCount','adult'],['childCount','child'],['bigEaterCount','big'],['bowlsPerPerson','bowls'],['feeAdult','feeAdult'],['feeChild','feeChild'],['feeBigEater','feeBig'],['extraBudget','extra']])if(s[key]!==undefined)$(id).value=s[key];
+    if(Array.isArray(s.ingredients))currentIngredients=s.ingredients.map(x=>({...x,baseQty:Math.max(0,Number(x.baseQty)||0),price:Math.max(0,Number(x.price)||0),checked:x.checked!==false}));
+    equipmentChecks=s.equipmentChecks||{};cookChecks=s.cookChecks||{};
+  }catch(e){
+    currentPresetKey='yamagata';currentIngredients=structuredClone(PRESETS.yamagata.ingredients);
+  }
+}
+
+let toastTimer;
+function toast(message){
+  $('toast').textContent=message;$('toast').classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2600);
+}
+
+function switchPreset(key){
+  if(!PRESETS[key])return;
+  currentPresetKey=key;
+  currentIngredients=structuredClone(PRESETS[key].ingredients);
+  renderAll();
+  toast(`${PRESETS[key].short}に切り替えました`);
+}
+
+function renderCook(){
+  const preset=PRESETS[currentPresetKey],serv=peopleInfo().servings;
+  $('cookTitle').textContent=`${preset.fullName}｜現地調理`;
+  $('cookSubtitle').textContent=`${serv.toFixed(1)}人分・調味料を計量してから調理してください`;
+  $('cookSeasonings').innerHTML=preset.seasonings.map(s=>`<div class="cook-season"><span>${esc(s.name)}</span><strong>${esc(fmtSeasoning(s.ratio*serv,s.unit))}</strong></div>`).join('');
+  $('cookSteps').innerHTML=preset.guide.steps.map((step,i)=>`<div class="cook-step ${cookChecks[`${currentPresetKey}_${i}`]?'done':''}" data-cook-step="${i}" role="button" tabindex="0"><span class="step-num">${i+1}</span><span class="step-text">${esc(step)}</span><span class="step-check">${cookChecks[`${currentPresetKey}_${i}`]?'✓':'○'}</span></div>`).join('');
+  $('cookTips').textContent='コツ：'+preset.guide.tips;
+  $('cookShimeHeading').textContent = preset.shime.heading;
+  $('cookShime').innerHTML=preset.shime.cards.map(c=>`<div><span>${esc(c.icon)} ${esc(c.name)}</span><strong>${esc(shimeValue(c,serv))}</strong></div>`).join('');
+}
+
+function openCook(){renderCook();$('cookModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeCook(){$('cookModal').classList.remove('open');document.body.style.overflow=''}
+
+function parseDelimited(text,delimiter){
+  const rows=[];let row=[],cell='',quoted=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++}else quoted=!quoted}
+    else if(c===delimiter&&!quoted){row.push(cell);cell=''}
+    else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(v=>v.trim()!==''))rows.push(row);row=[];cell=''}
+    else cell+=c;
+  }
+  row.push(cell);if(row.some(v=>v.trim()!==''))rows.push(row);
+  return rows;
+}
+
+function parseImport(text){
+  text=text.replace(/^\uFEFF/,'').trim();if(!text)return[];
+  const delimiter=text.includes('\t')?'\t':',';
+  const rows=parseDelimited(text,delimiter);
+  const parsed=[];
+  for(let r=0;r<rows.length;r++){
+    const cols=rows[r].map(x=>x.trim());if(!cols.length)continue;
+    if(r===0&&/(食材|名前|品名|項目)/.test(cols[0]))continue;
+    const name=cols[0];if(!name)continue;
+    const qtyRaw=cols[1]||'50';
+    let unit=(cols[2]||'').trim();
+    let qtyMatch=qtyRaw.replace(/,/g,'').match(/^\s*(-?\d+(?:\.\d+)?)\s*(kg|g|本|束|個|袋|玉|丁|枚|尾|合|ml|L)?\s*$/i);
+    if(!qtyMatch)continue;
+    let qty=Number(qtyMatch[1]);if(!Number.isFinite(qty)||qty<0)continue;
+    unit=unit||qtyMatch[2]||'g';
+    if(unit.toLowerCase()==='kg'){unit='g';qty*=1000}
+    if(unit.toLowerCase()==='l'){unit='ml';qty*=1000}
+    const priceRaw=(cols[3]||'').replace(/[¥￥,\s]/g,'');
+    const price=priceRaw===''?(unit==='g'?120:80):Number(priceRaw);
+    if(!Number.isFinite(price)||price<0)continue;
+    parsed.push({id:`import_${Date.now()}_${r}`,name,baseQty:qty,unit,price,checked:true});
+  }
+  return parsed;
+}
+
+async function copyText(text){
+  try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return true}}catch(e){}
+  try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}
+}
+
+function makeShareText(){
+  const p=peopleInfo(),preset=PRESETS[currentPresetKey],cost=ingredientCost(),revenue=p.adult*num('feeAdult')+p.child*num('feeChild')+p.big*num('feeBigEater'),expenses=cost+num('extraBudget'),bal=revenue-expenses;
+  let out=[
+    `【${preset.fullName}｜買い出しメモ】`,
+    `参加：大人${p.adult}名／子ども${p.child}名／大食い${p.big}名（計${p.raw}名・${p.servings.toFixed(1)}人分）`,
+    `集金 ${yen(revenue)}／支出概算 ${yen(expenses)}／差額 ${bal>=0?'+':'−'}${yen(Math.abs(bal))}`,
+    '',
+    '［食材］'
+  ];
+  currentIngredients.filter(i=>i.checked).forEach(i=>{
+    const q=i.baseQty*p.servings;
+    out.push(`・${i.name}：${compactQty(q,i.unit)}`);
+  });
+  out.push('','［調味料］');
+  preset.seasonings.forEach(s=>out.push(`・${s.name}：${fmtSeasoning(s.ratio*p.servings,s.unit)}`));
+  const equip=cookEquipmentRecommendation(p.servings);
+  out.push('','［器具・熱源］',`・推奨器具：${equip.size}（${equip.diameter}）`,`・熱源目安：${equip.gas}`);
+  return out.join('\n');
+}
+
 function closeImport(){ $('importModal').classList.remove('open') }
 
-document.addEventListener('DOMContentLoaded',()=>{loadState();renderAll();
-  document.addEventListener('click',e=>{const preset=e.target.closest('[data-preset]');if(preset){switchPreset(preset.dataset.preset);return}const step=e.target.closest('.step-btn');if(step){const input=$(step.dataset.target);input.value=Math.max(0,Math.min(500,(Number(input.value)||0)+Number(step.dataset.delta)));renderAll();return}const tab=e.target.closest('.tab-btn');if(tab){document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.toggle('active',b===tab);b.setAttribute('aria-selected',b===tab?'true':'false')});document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${tab.dataset.tab}`));return}const del=e.target.closest('[data-delete]');if(del){currentIngredients.splice(Number(del.dataset.delete),1);renderAll();return}if(e.target.id==='openCook'){openCook();return}if(e.target.id==='closeCook'){closeCook();return}if(e.target.id==='openImport'){ $('importModal').classList.add('open');return}if(e.target.id==='closeImport'||e.target.id==='cancelImport'){closeImport();return}if(e.target.id==='addItem'){currentIngredients.push({id:`custom_${Date.now()}`,name:'追加食材',baseQty:50,unit:'g',price:100,checked:true});renderAll();return}if(e.target.id==='applyImport'){const parsed=parseImport($('importText').value);if(!parsed.length){toast('読み込める行がありません。列の並びと数値を確認してください');return}currentIngredients=parsed;renderAll();closeImport();toast(`${parsed.length}件の食材を取り込みました`);return}if(e.target.id==='shareBtn'){copyText(makeShareText()).then(ok=>toast(ok?'共有用リストをコピーしました':'コピーできませんでした。ブラウザーの権限をご確認ください'));return}if(e.target.classList.contains('cook-step')||e.target.closest('.cook-step')){const card=e.target.closest('.cook-step');const i=card.dataset.cookStep,key=`${currentPresetKey}_${i}`;cookChecks[key]=!cookChecks[key];renderCook();saveState();return}if(e.target.id==='importModal'){closeImport()}});
-  document.addEventListener('input',e=>{if(['adultCount','childCount','bigEaterCount','feeAdult','feeChild','feeBigEater','extraBudget'].includes(e.target.id)){renderAll();return}});
+document.addEventListener('DOMContentLoaded',()=>{
+  loadState();
+  renderAll();
+  
+  document.addEventListener('click',e=>{
+    const preset=e.target.closest('[data-preset]');
+    if(preset){switchPreset(preset.dataset.preset);return}
+    
+    const step=e.target.closest('.step-btn');
+    if(step){
+      const input=$(step.dataset.target);
+      input.value=Math.max(0,Math.min(500,(Number(input.value)||0)+Number(step.dataset.delta)));
+      renderAll();
+      return;
+    }
+    
+    const tab=e.target.closest('.tab-btn');
+    if(tab){
+      document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.toggle('active',b===tab);b.setAttribute('aria-selected',b===tab?'true':'false')});
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${tab.dataset.tab}`));
+      return;
+    }
+    
+    const del=e.target.closest('[data-delete]');
+    if(del){
+      currentIngredients.splice(Number(del.dataset.delete),1);
+      renderAll();
+      return;
+    }
+    
+    if(e.target.id==='openCook'){openCook();return}
+    if(e.target.id==='closeCook'){closeCook();return}
+    if(e.target.id==='openImport'){ $('importModal').classList.add('open');return}
+    if(e.target.id==='closeImport'||e.target.id==='cancelImport'){closeImport();return}
+    if(e.target.id==='addItem'){
+      currentIngredients.push({id:`custom_${Date.now()}`,name:'追加食材',baseQty:50,unit:'g',price:100,checked:true});
+      renderAll();
+      return;
+    }
+    if(e.target.id==='applyImport'){
+      const parsed=parseImport($('importText').value);
+      if(!parsed.length){toast('読み込める行がありません。列の並びと数値を確認してください');return}
+      currentIngredients=parsed;
+      renderAll();
+      closeImport();
+      toast(`${parsed.length}件の食材を取り込みました`);
+      return;
+    }
+    if(e.target.id==='shareBtn'){
+      copyText(makeShareText()).then(ok=>toast(ok?'共有用リストをコピーしました':'コピーできませんでした。ブラウザーの権限をご確認ください'));
+      return;
+    }
+    if(e.target.classList.contains('cook-step')||e.target.closest('.cook-step')){
+      const card=e.target.closest('.cook-step');
+      const i=card.dataset.cookStep,key=`${currentPresetKey}_${i}`;
+      cookChecks[key]=!cookChecks[key];
+      renderCook();
+      saveState();
+      return;
+    }
+    if(e.target.id==='importModal'){closeImport()}
+  });
+
+  document.addEventListener('input',e=>{
+    if(['adultCount','childCount','bigEaterCount','feeAdult','feeChild','feeBigEater','extraBudget'].includes(e.target.id)){
+      renderAll();
+      return;
+    }
+  });
+
   $('bowlsPerPerson').addEventListener('change',renderAll);
-  $('ingredientsBody').addEventListener('change',e=>{const t=e.target,index=Number(t.dataset.index);if(!Number.isInteger(index)||!currentIngredients[index])return;if(t.classList.contains('ingredient-check'))currentIngredients[index].checked=t.checked;else if(t.dataset.field==='name')currentIngredients[index].name=t.value.trim()||'名称未設定';else if(t.dataset.field==='baseQty')currentIngredients[index].baseQty=Math.max(0,Number(t.value)||0);else if(t.dataset.field==='price')currentIngredients[index].price=Math.max(0,Number(t.value)||0);renderAll()});
-  $('equipmentList').addEventListener('change',e=>{if(e.target.dataset.equip!==undefined){equipmentChecks[e.target.dataset.equip]=e.target.checked;saveState()}});
-  $('csvFile').addEventListener('change',e=>{const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{$('importText').value=String(ev.target.result||'')};reader.readAsText(file,'UTF-8')});
-  $('cookSteps').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('.cook-step')){e.preventDefault();e.target.closest('.cook-step').click()}});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeImport();closeCook()}});
+
+  $('ingredientsBody').addEventListener('change',e=>{
+    const t=e.target,index=Number(t.dataset.index);
+    if(!Number.isInteger(index)||!currentIngredients[index])return;
+    if(t.classList.contains('ingredient-check'))currentIngredients[index].checked=t.checked;
+    else if(t.dataset.field==='name')currentIngredients[index].name=t.value.trim()||'名称未設定';
+    else if(t.dataset.field==='baseQty')currentIngredients[index].baseQty=Math.max(0,Number(t.value)||0);
+    else if(t.dataset.field==='price')currentIngredients[index].price=Math.max(0,Number(t.value)||0);
+    renderAll();
+  });
+
+  $('equipmentList').addEventListener('change',e=>{
+    if(e.target.dataset.equip!==undefined){
+      equipmentChecks[e.target.dataset.equip]=e.target.checked;
+      saveState();
+    }
+  });
+
+  $('csvFile').addEventListener('change',e=>{
+    const file=e.target.files?.[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=ev=>{$('importText').value=String(ev.target.result||'')};
+    reader.readAsText(file,'UTF-8');
+  });
+
+  $('cookSteps').addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&e.target.closest('.cook-step')){
+      e.preventDefault();
+      e.target.closest('.cook-step').click();
+    }
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){closeImport();closeCook()}
+  });
 });
 </script>
 </body>
