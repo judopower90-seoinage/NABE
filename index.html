@@ -7,8 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="鍋支度">
+<!-- favicon: PC・モダンブラウザ用（インラインSVG） -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23173b33'/%3E%3Cpath d='M40 75h100l-9 66a15 15 0 0 1-15 13H64a15 15 0 0 1-15-13L40 75Z' fill='%23e7bd6c'/%3E%3Cpath d='M26 75h128' stroke='%23e7bd6c' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M62 55c0-10 8-10 8-22M90 55c0-10 8-10 8-22M118 55c0-10 8-10 8-22' fill='none' stroke='%23e7bd6c' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23173b33'/%3E%3Cpath d='M40 75h100l-9 66a15 15 0 0 1-15 13H64a15 15 0 0 1-15-13L40 75Z' fill='%23e7bd6c'/%3E%3Cpath d='M26 75h128' stroke='%23e7bd6c' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M62 55c0-10 8-10 8-22M90 55c0-10 8-10 8-22M118 55c0-10 8-10 8-22' fill='none' stroke='%23e7bd6c' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- apple-touch-icon: iOS Safari用（Apple標準仕様・実ファイル参照） -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <title>鍋支度</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -202,60 +204,6 @@ footer{padding:16px 0 25px;text-align:center;color:#718077;font-size:.64rem}
 
 <script>
 'use strict';
-(function setupAppIcons(){
-  try{
-    const canvas = document.createElement('canvas');
-    canvas.width = 180;
-    canvas.height = 180;
-    const ctx = canvas.getContext('2d');
-    if(!ctx) return;
-    
-    // 背景（深緑）
-    ctx.fillStyle = '#173b33';
-    ctx.fillRect(0, 0, 180, 180);
-    
-    // 鍋フチ
-    ctx.strokeStyle = '#e7bd6c';
-    ctx.lineWidth = 10;
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.moveTo(32, 75);
-    ctx.lineTo(148, 75);
-    ctx.stroke();
-
-    // 鍋本体
-    ctx.fillStyle = '#e7bd6c';
-    ctx.beginPath();
-    ctx.moveTo(42, 78);
-    ctx.lineTo(138, 78);
-    ctx.lineTo(128, 142);
-    ctx.quadraticCurveTo(126, 154, 114, 154);
-    ctx.lineTo(66, 154);
-    ctx.quadraticCurveTo(54, 154, 52, 142);
-    ctx.closePath();
-    ctx.fill();
-
-    // 立ちのぼる湯気（3本）
-    ctx.strokeStyle = '#e7bd6c';
-    ctx.lineWidth = 8;
-    const drawSteam = (x) => {
-      ctx.beginPath();
-      ctx.moveTo(x, 56);
-      ctx.bezierCurveTo(x, 44, x + 8, 44, x + 8, 30);
-      ctx.stroke();
-    };
-    drawSteam(62);
-    drawSteam(90);
-    drawSteam(118);
-
-    const pngUrl = canvas.toDataURL('image/png');
-    const touchIcon = document.querySelector('link[rel="apple-touch-icon"]');
-    if(touchIcon) touchIcon.href = pngUrl;
-    const favicon = document.querySelector('link[rel="icon"]');
-    if(favicon) favicon.href = pngUrl;
-  }catch(e){}
-})();
-
 const PRESETS={
  yamagata:{
   category:'鍋・煮込み',name:'山形・芋煮',fullName:'山形・芋煮（牛肉・醤油ベース）',short:'山形・芋煮',type:'pot',
