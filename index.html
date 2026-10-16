@@ -36,6 +36,7 @@ button:disabled{opacity:.55;cursor:not-allowed}.wrap{width:min(1180px,calc(100% 
 .brand{display:flex;align-items:center;gap:10px;min-width:0}.brand-mark{width:38px;height:38px;border-radius:12px;background:#e7bd6c;color:#203b30;display:grid;place-items:center;flex:none}
 .brand-name{font-weight:900;font-size:1.05rem;line-height:1.2;letter-spacing:.04em}
 .top-actions{display:flex;align-items:center;gap:8px}.btn{border:1px solid transparent;border-radius:11px;padding:8px 12px;font-weight:800;font-size:.76rem;transition:transform .16s,background .16s,border-color .16s;display:inline-flex;align-items:center;justify-content:center;gap:6px;line-height:1.25}
+.btn > *{pointer-events:none}
 .btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--tomato);color:#fff}.btn-primary:hover{background:var(--tomato-dark)}.btn-dark{background:#244a40;color:#f7faf7;border-color:#49665d}.btn-dark:hover{background:#2c594d}.btn-light{background:var(--paper);color:var(--green);border-color:var(--line)}.btn-light:hover{background:var(--green-pale)}.btn-quiet{background:transparent;color:var(--muted);border-color:var(--line)}.btn-quiet:hover{background:var(--paper)}
 main{padding:16px 0 40px}.hero{background:var(--green);color:#fffefa;border-radius:24px;min-height:auto;padding:clamp(16px,3vw,32px);display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .hero:after{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(224,190,120,.2);border-radius:50%;right:-110px;top:-190px;box-shadow:0 0 0 34px rgba(224,190,120,.035),0 0 0 70px rgba(224,190,120,.025);pointer-events:none}
@@ -580,14 +581,19 @@ function switchPreset(key){
 }
 
 function renderCook(){
-  const preset=PRESETS[currentPresetKey],serv=peopleInfo().servings;
-  $('cookTitle').textContent=`${preset.fullName}｜現地調理`;
-  $('cookSubtitle').textContent=`${serv.toFixed(1)}人分・調味料を計量してから調理してください`;
-  $('cookSeasonings').innerHTML=preset.seasonings.map(s=>`<div class="cook-season"><span>${esc(s.name)}</span><strong>${esc(fmtSeasoning(s.ratio*serv,s.unit))}</strong></div>`).join('');
-  $('cookSteps').innerHTML=preset.guide.steps.map((step,i)=>`<div class="cook-step ${cookChecks[`${currentPresetKey}_${i}`]?'done':''}" data-cook-step="${i}" role="button" tabindex="0"><span class="step-num">${i+1}</span><span class="step-text">${esc(step)}</span><span class="step-check">${cookChecks[`${currentPresetKey}_${i}`]?'✓':'○'}</span></div>`).join('');
-  $('cookTips').textContent='コツ：'+preset.guide.tips;
-  $('cookShimeHeading').textContent = preset.shime.heading;
-  $('cookShime').innerHTML=preset.shime.cards.map(c=>`<div><span>${esc(c.icon)} ${esc(c.name)}</span><strong>${esc(shimeValue(c,serv))}</strong></div>`).join('');
+  try{
+    const preset=PRESETS[currentPresetKey],serv=peopleInfo().servings;
+    if(!preset) return;
+    $('cookTitle').textContent=`${preset.fullName}｜現地調理`;
+    $('cookSubtitle').textContent=`${serv.toFixed(1)}人分・調味料を計量してから調理してください`;
+    $('cookSeasonings').innerHTML=(preset.seasonings||[]).map(s=>`<div class="cook-season"><span>${esc(s.name)}</span><strong>${esc(fmtSeasoning(s.ratio*serv,s.unit))}</strong></div>`).join('');
+    $('cookSteps').innerHTML=(preset.guide?.steps||[]).map((step,i)=>`<div class="cook-step ${cookChecks[`${currentPresetKey}_${i}`]?'done':''}" data-cook-step="${i}" role="button" tabindex="0"><span class="step-num">${i+1}</span><span class="step-text">${esc(step)}</span><span class="step-check">${cookChecks[`${currentPresetKey}_${i}`]?'✓':'○'}</span></div>`).join('');
+    $('cookTips').textContent='コツ：'+(preset.guide?.tips||'');
+    if(preset.shime){
+      $('cookShimeHeading').textContent = preset.shime.heading||'シメ・アレンジ';
+      $('cookShime').innerHTML=(preset.shime.cards||[]).map(c=>`<div><span>${esc(c.icon)} ${esc(c.name)}</span><strong>${esc(shimeValue(c,serv))}</strong></div>`).join('');
+    }
+  }catch(e){console.error('renderCook error:', e)}
 }
 
 function openCook(){renderCook();$('cookModal').classList.add('open');document.body.style.overflow='hidden'}
@@ -687,16 +693,16 @@ document.addEventListener('DOMContentLoaded',()=>{
       return;
     }
     
-    if(e.target.id==='openCook'){openCook();return}
-    if(e.target.id==='closeCook'){closeCook();return}
-    if(e.target.id==='openImport'){ $('importModal').classList.add('open');return}
-    if(e.target.id==='closeImport'||e.target.id==='cancelImport'){closeImport();return}
-    if(e.target.id==='addItem'){
+    if(e.target.closest('#openCook')){openCook();return}
+    if(e.target.closest('#closeCook')){closeCook();return}
+    if(e.target.closest('#openImport')){ $('importModal').classList.add('open');return}
+    if(e.target.closest('#closeImport')||e.target.closest('#cancelImport')){closeImport();return}
+    if(e.target.closest('#addItem')){
       currentIngredients.push({id:`custom_${Date.now()}`,name:'追加食材',baseQty:50,unit:'g',price:100,checked:true});
       renderAll();
       return;
     }
-    if(e.target.id==='applyImport'){
+    if(e.target.closest('#applyImport')){
       const parsed=parseImport($('importText').value);
       if(!parsed.length){toast('読み込める行がありません。列の並びと数値を確認してください');return}
       currentIngredients=parsed;
@@ -705,7 +711,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       toast(`${parsed.length}件の食材を取り込みました`);
       return;
     }
-    if(e.target.id==='shareBtn'){
+    if(e.target.closest('#shareBtn')){
       copyText(makeShareText()).then(ok=>toast(ok?'共有用リストをコピーしました':'コピーできませんでした。ブラウザーの権限をご確認ください'));
       return;
     }
@@ -717,8 +723,14 @@ document.addEventListener('DOMContentLoaded',()=>{
       saveState();
       return;
     }
-    if(e.target.id==='importModal'){closeImport()}
+    if(e.target.id==='importModal'){closeImport();return}
+    if(e.target.id==='cookModal'){closeCook();return}
   });
+
+  const openCookBtn = $('openCook');
+  if(openCookBtn) openCookBtn.addEventListener('click', openCook);
+  const closeCookBtn = $('closeCook');
+  if(closeCookBtn) closeCookBtn.addEventListener('click', closeCook);
 
   document.addEventListener('input',e=>{
     if(['adultCount','childCount','bigEaterCount','feeAdult','feeChild','feeBigEater','extraBudget'].includes(e.target.id)){
